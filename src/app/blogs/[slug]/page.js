@@ -1,5 +1,5 @@
 // src/app/blog/[slug]/page.js
-import { fetchBlogPost } from '@/lib/sanity';
+import { fetchBlogPost } from '../../../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import Link from 'next/link';

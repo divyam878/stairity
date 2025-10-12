@@ -2,7 +2,7 @@
 import BlogHero from './BlogHero';
 import Link from 'next/link';
 import Image from 'next/image';
-import { fetchBlogPosts } from '@/lib/sanity';
+import { fetchBlogPosts } from '../../lib/sanity';
 
 export default async function BlogList() {
   const posts = await fetchBlogPosts();

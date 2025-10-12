@@ -104,7 +104,7 @@ export default function OurServices() {
 
           <p className="mt-6 text-sm md:text-base text-black max-w-md">
             Our battle-tested developers specialize in a wide range of web
-            development services. Here's what we deliver.
+            development services. Here&apos;s what we deliver.
           </p>
         </div>
       </div>

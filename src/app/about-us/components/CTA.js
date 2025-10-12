@@ -24,7 +24,7 @@ export default function CTA() {
                   </h2>
                   <p className="text-xl text-gray-700 mb-8 max-w-2xl relative pl-6">
                     <span className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500 rounded-full"></span>
-                    Let's build something amazing together. Get in touch with our team today.
+                    Let&apos;s build something amazing together. Get in touch with our team today.
                   </p>
                   <Link 
                     href="/contact" 

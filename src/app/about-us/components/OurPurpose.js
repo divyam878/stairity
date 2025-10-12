@@ -50,7 +50,7 @@ export default function OurPurpose() {
             />
           </div>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Whether you're a startup or a growing brand, our focus is the same:
+            Whether you&apos;re a startup or a growing brand, our focus is the same:
             turn your website into your strongest asset.
           </p>
         </div>
