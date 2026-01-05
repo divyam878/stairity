@@ -17,7 +17,7 @@ const helloAmerica = localFont({
 });
 
 export const metadata = {
-  title: "Stairity",
+  title: "Webestrix",
   description: "Your SEO Partner",
 };
 

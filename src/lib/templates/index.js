@@ -1,4 +1,4 @@
-// Stairity Template Library
+// Webestrix Template Library
 // 5 curated website templates for different industries
 
 export const TEMPLATES = {
@@ -63,18 +63,18 @@ export const TEMPLATES = {
             sans: ['Poppins', 'sans-serif'],
           },
           colors: {
-            'stairity-teal': '#ACD9D9',
-            'stairity-pink': '#FFE5E5',
-            'stairity-lavender': '#E5D4FF',
-            'stairity-gray': '#F6F6F6',
-            'stairity-purple': '#9333ea',
+            'webestrix-teal': '#ACD9D9',
+            'webestrix-pink': '#FFE5E5',
+            'webestrix-lavender': '#E5D4FF',
+            'webestrix-gray': '#F6F6F6',
+            'webestrix-purple': '#9333ea',
           }
         }
       }
     }
   </script>
 </head>
-<body class="font-sans bg-stairity-gray text-gray-900">
+<body class="font-sans bg-webestrix-gray text-gray-900">
   
   <!-- Hero Section -->
   <header class="min-h-screen flex items-center justify-center bg-white px-4 sm:px-6 lg:px-8">
@@ -95,7 +95,7 @@ export const TEMPLATES = {
   </header>
 
   <!-- About Section -->
-  <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-stairity-gray">
+  <section class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-webestrix-gray">
     <div class="max-w-4xl mx-auto">
       <h2 class="text-4xl md:text-5xl font-bold text-black text-center mb-8">
         ${content.about.title}
@@ -111,7 +111,7 @@ export const TEMPLATES = {
     <div class="max-w-7xl mx-auto">
       <div class="grid md:grid-cols-3 gap-8">
         ${content.features.map(feature => `
-          <div class="bg-stairity-gray rounded-3xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all">
+          <div class="bg-webestrix-gray rounded-3xl p-8 shadow-lg hover:shadow-xl hover:-translate-y-2 transition-all">
             <h3 class="text-2xl font-bold text-black mb-4">${feature.title}</h3>
             <p class="text-gray-700">${feature.description}</p>
           </div>
@@ -121,7 +121,7 @@ export const TEMPLATES = {
   </section>
 
   <!-- CTA Section -->
-  <section id="contact" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-stairity-lavender">
+  <section id="contact" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-webestrix-lavender">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-4xl md:text-5xl font-bold text-black mb-6">
         ${content.cta.headline}
@@ -141,7 +141,7 @@ export const TEMPLATES = {
   <!-- Footer -->
   <footer class="py-8 px-4 sm:px-6 lg:px-8 bg-white text-center">
     <p class="text-sm text-gray-500">
-      Built with <a href="https://stairity.com" class="text-stairity-purple hover:underline" target="_blank">Stairity</a>
+      Built with <a href="https://webestrix.com" class="text-webestrix-purple hover:underline" target="_blank">Webestrix</a>
     </p>
   </footer>
 
@@ -171,10 +171,10 @@ export const TEMPLATES = {
         extend: {
           fontFamily: { sans: ['Poppins', 'sans-serif'] },
           colors: {
-            'stairity-teal': '#ACD9D9',
-            'stairity-pink': '#FFE5E5',
-            'stairity-lavender': '#E5D4FF',
-            'stairity-purple': '#9333ea',
+            'webestrix-teal': '#ACD9D9',
+            'webestrix-pink': '#FFE5E5',
+            'webestrix-lavender': '#E5D4FF',
+            'webestrix-purple': '#9333ea',
           }
         }
       }
@@ -183,7 +183,7 @@ export const TEMPLATES = {
 </head>
 <body class="font-sans bg-white text-gray-900">
   
-  <header class="min-h-screen flex items-center justify-center bg-stairity-pink px-4 sm:px-6 lg:px-8">
+  <header class="min-h-screen flex items-center justify-center bg-webestrix-pink px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto text-center">
       <h1 class="text-6xl md:text-7xl lg:text-8xl font-bold text-black mb-6">
         ${content.hero.headline}
@@ -191,7 +191,7 @@ export const TEMPLATES = {
       <p class="text-2xl md:text-3xl text-gray-700 max-w-3xl mx-auto mb-8">
         ${content.hero.subheadline}
       </p>
-      <a href="#contact" class="inline-flex items-center gap-2 px-10 py-5 bg-stairity-purple text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-110 transition-all">
+      <a href="#contact" class="inline-flex items-center gap-2 px-10 py-5 bg-webestrix-purple text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-110 transition-all">
         ${content.hero.ctaText}
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -211,11 +211,11 @@ export const TEMPLATES = {
     </div>
   </section>
 
-  <section class="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-stairity-lavender">
+  <section class="py-20 md:py-32 px-4 sm:px-6 lg:px-8 bg-webestrix-lavender">
     <div class="max-w-7xl mx-auto">
       <div class="grid md:grid-cols-3 gap-10">
         ${content.features.map((feature, idx) => {
-          const colors = ['bg-stairity-pink', 'bg-stairity-teal', 'bg-white'];
+          const colors = ['bg-webestrix-pink', 'bg-webestrix-teal', 'bg-white'];
           return `
             <div class="${colors[idx % 3]} rounded-[3rem] p-10 shadow-2xl hover:-translate-y-4 transition-all">
               <h3 class="text-3xl font-bold text-black mb-4">${feature.title}</h3>
@@ -235,7 +235,7 @@ export const TEMPLATES = {
       <p class="text-2xl text-gray-300 mb-10">
         ${content.cta.subheadline}
       </p>
-      <a href="mailto:contact@example.com" class="inline-flex items-center gap-2 px-10 py-5 bg-stairity-purple text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-110 transition-all">
+      <a href="mailto:contact@example.com" class="inline-flex items-center gap-2 px-10 py-5 bg-webestrix-purple text-white rounded-full font-bold text-lg shadow-xl hover:shadow-2xl hover:scale-110 transition-all">
         ${content.cta.buttonText}
         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
@@ -246,7 +246,7 @@ export const TEMPLATES = {
 
   <footer class="py-8 px-4 bg-white text-center">
     <p class="text-sm text-gray-500">
-      Built with <a href="https://stairity.com" class="text-stairity-purple hover:underline">Stairity</a>
+      Built with <a href="https://webestrix.com" class="text-webestrix-purple hover:underline">Webestrix</a>
     </p>
   </footer>
 
@@ -276,17 +276,17 @@ export const TEMPLATES = {
         extend: {
           fontFamily: { sans: ['Poppins', 'sans-serif'] },
           colors: {
-            'stairity-teal': '#ACD9D9',
-            'stairity-gray': '#F6F6F6',
+            'webestrix-teal': '#ACD9D9',
+            'webestrix-gray': '#F6F6F6',
           }
         }
       }
     }
   </script>
 </head>
-<body class="font-sans bg-stairity-gray">
+<body class="font-sans bg-webestrix-gray">
   
-  <header class="min-h-screen flex items-center justify-center bg-stairity-teal px-4 sm:px-6 lg:px-8">
+  <header class="min-h-screen flex items-center justify-center bg-webestrix-teal px-4 sm:px-6 lg:px-8">
     <div class="max-w-7xl mx-auto text-center">
       <h1 class="text-5xl md:text-6xl lg:text-7xl font-bold text-black mb-6">
         ${content.hero.headline}
@@ -322,7 +322,7 @@ export const TEMPLATES = {
     </div>
   </section>
 
-  <section id="contact" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-stairity-teal">
+  <section id="contact" class="py-16 md:py-24 px-4 sm:px-6 lg:px-8 bg-webestrix-teal">
     <div class="max-w-4xl mx-auto text-center">
       <h2 class="text-4xl md:text-5xl font-bold text-black mb-6">
         ${content.cta.headline}
@@ -338,7 +338,7 @@ export const TEMPLATES = {
 
   <footer class="py-8 px-4 bg-white text-center">
     <p class="text-sm text-gray-500">
-      Built with <a href="https://stairity.com" class="text-black hover:underline">Stairity</a>
+      Built with <a href="https://webestrix.com" class="text-black hover:underline">Webestrix</a>
     </p>
   </footer>
 

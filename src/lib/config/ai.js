@@ -1,4 +1,4 @@
-// AI Configuration for Stairity
+// AI Configuration for Webestrix
 
 export const AI_CONFIG = {
   // Model settings

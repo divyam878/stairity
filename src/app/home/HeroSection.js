@@ -436,8 +436,8 @@ const HeroSection = () => {
               {/* Logo Image */}
               <div className="relative z-10 w-3/4 h-3/4 flex items-center justify-center p-2">
                 <img
-                  src="/images/stairityLogoHalf.svg"
-                  alt="Stairity Logo"
+                  src="/images/webestrix-logo-short-4.svg"
+                  alt="Webestrix Logo"
                   width={120}
                   height={120}
                   className="w-full h-full object-contain"

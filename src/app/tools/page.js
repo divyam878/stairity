@@ -52,8 +52,8 @@ export default function ToolsPage() {
         
         {/* Header */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#a1ffc8] rounded-full mb-6">
-            <Sparkles className="w-5 h-5 text-[#005b52]" />
+          <div className="inline-flex items-center gap-2 px-4 py-2 bg-[#D5B2FF] rounded-full mb-6">
+            <Sparkles className="w-5 h-5 text-[#FFFFFF]" />
             <span className="text-sm font-semibold text-black">AI-Powered Tools</span>
           </div>
           

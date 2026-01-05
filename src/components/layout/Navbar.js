@@ -22,8 +22,8 @@ const Navbar = () => {
           {/* Logo */}
           <Link href="/" className="flex items-center">
             <img 
-              src="/images/stairityLogofull.svg" 
-              alt="Stairity Logo" 
+              src="/images/webestrix-logo-full-3.svg" 
+              alt="Webestrix Logo" 
               width={120} 
               height={40} 
             />
@@ -41,11 +41,11 @@ const Navbar = () => {
               <div 
                 className="flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all shadow-md hover:shadow-lg relative"
                 style={{ 
-                  background: 'linear-gradient(#FDFDFB, #FDFDFB) padding-box, linear-gradient(90deg, #4285F4 0%, #34A853 33%, #FBBC05 66%, #EA4335 100%) border-box',
+                  background: 'linear-gradient(#FDFDFB, #FDFDFB) padding-box, linear-gradient(90deg, #f0c4dcff 0%, #9ae4ecff 33%, #7a90feff 66%, #785defff 100%) border-box',
                   border: '2px solid transparent'
                 }}
               >
-                <Wand2 className="w-4 h-4" style={{ color: '#4285F4' }} />
+                <Wand2 className="w-4 h-4" style={{ color: '#A78BFA' }} />
                 <span className="font-semibold text-sm lg:text-base text-gray-700">AI Tools</span>
               </div>
             </Link>
@@ -125,11 +125,11 @@ const Navbar = () => {
                 <div 
                   className="flex items-center gap-2 px-4 py-2 rounded-full transition-all shadow-md w-fit"
                   style={{ 
-                    background: 'linear-gradient(#FDFDFB, #FDFDFB) padding-box, linear-gradient(90deg, #4285F4 0%, #34A853 33%, #FBBC05 66%, #EA4335 100%) border-box',
+                    background: 'linear-gradient(#FDFDFB, #FDFDFB) padding-box, linear-gradient(90deg, #F9A8D4 0%, #A5F3FC 33%, #A5B4FC 66%, #DDD6FE 100%) border-box',
                     border: '2px solid transparent'
                   }}
                 >
-                  <Wand2 className="w-5 h-5" style={{ color: '#4285F4' }} />
+                  <Wand2 className="w-5 h-5" style={{ color: '#A78BFA' }} />
                   <span className="font-semibold text-xl text-gray-700">AI Tools</span>
                 </div>
               </Link>

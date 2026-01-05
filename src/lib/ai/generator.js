@@ -195,14 +195,14 @@ Output ONLY valid JSON.
 }
 
 /**
- * Add Stairity watermark to HTML (for free tier)
+ * Add Webestrix watermark to HTML (for free tier)
  */
 function addWatermark(html) {
   // Add a more prominent watermark for free tier
   const watermark = `
-  <!-- Stairity Free Tier Watermark -->
+  <!-- Webestrix Free Tier Watermark -->
   <div style="position: fixed; bottom: 20px; right: 20px; background: rgba(147, 51, 234, 0.95); color: white; padding: 12px 20px; border-radius: 50px; font-family: 'Poppins', sans-serif; font-size: 14px; font-weight: 600; box-shadow: 0 4px 12px rgba(0,0,0,0.15); z-index: 9999;">
-    Built with <a href="https://stairity.com" style="color: white; text-decoration: underline;" target="_blank">Stairity</a> ✨
+    Built with <a href="https://Webestrix.com" style="color: white; text-decoration: underline;" target="_blank">Webestrix</a> ✨
   </div>
   `;
   

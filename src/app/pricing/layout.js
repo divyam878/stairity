@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Pricing - Website Redesign & SEO Services | Stairity",
+  title: "Pricing - Website Redesign & SEO Services | Webestrix",
   description:
     "Transparent pricing for website performance audits, professional redesign services, and AI-powered SEO tools. Start with a free PageSpeed Insights audit today.",
   keywords: [

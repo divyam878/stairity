@@ -68,8 +68,8 @@ const WordSplitter = ({ text, className, delayIncrement = 50, tag = "p" }) => {
 
 // Utility: interpolate between two RGBA colors
 const interpolateColor = (scrollProgress) => {
-  const startColor = [224, 247, 255, 0.8]; // very light blue
-  const endColor = [56, 182, 255, 1.0]; // brand blue #38b6ff
+  const startColor = [212, 232, 255, 0.8]; // light blue #d4e8ff
+  const endColor = [24, 0, 173, 1.0]; // deep purple-blue #1800ad
 
   const r = Math.round(
     startColor[0] + (endColor[0] - startColor[0]) * scrollProgress,
@@ -168,8 +168,8 @@ const HeroSection = () => {
           <div className="mb-8">
             <h1 className="text-6xl md:text-8xl font-semibold text-black tracking-tight leading-tight -z-1">
               CAREERS AT{" "}
-              <span className="font-hello font-regular text-[#38b6ff]">
-                Stairity
+              <span className="font-hello font-regular text-[#5170ff]">
+                Webestrix
               </span>
             </h1>
             <p className="text-2xl md:text-3xl font-regular text-gray-900 mt-4">
@@ -184,16 +184,16 @@ const HeroSection = () => {
                                  flex items-center justify-center"
           >
             {/* New: Moon image behind the logo */}
-            <img
+            {/* <img
               src="/images/moon.png"
               alt="Moon"
               // Center the moon, slightly smaller than the sphere
               className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2
                                    w-40 h-40 md:w-52 md:h-52 object-contain  z-[1]"
-            />
+            /> */}
             <img
-              src="/images/stairitylogohalf.svg"
-              alt="Stairity Logo"
+              src="/images/webestrix-logo-short-4.svg"
+              alt="Webestrix Logo"
               width={100}
               height={100}
               className="w-24 h-24 md:w-32 md:h-32 object-contain z-[2]" // Ensure logo is above moon
@@ -204,7 +204,7 @@ const HeroSection = () => {
           {/* GET IN TOUCH Button */}
           <a
             href="#contact"
-            className="mt-16 md:mt-20 relative group flex items-center justify-center w-48 h-12 md:w-56 md:h-14 rounded-full bg-[#1a5f9c] hover:bg-[#13497a] transition-colors duration-300 z-10"
+            className="mt-16 md:mt-20 relative group flex items-center justify-center w-48 h-12 md:w-56 md:h-14 rounded-full bg-[#1800ad] hover:bg-[#13497a] transition-colors duration-300 z-10"
           >
             <span className="text-white font-medium text-sm md:text-base tracking-wider">
               GET IN TOUCH
@@ -262,7 +262,7 @@ const HeroSection = () => {
           {/* Text Block 4 */}
           <WordSplitter
             text={text4}
-            className="text-xl md:text-3xl text-gray-800 leading-relaxed"
+            className="text-xl md:text-3xl text-white leading-relaxed"
             tag="p"
           />
         </div>

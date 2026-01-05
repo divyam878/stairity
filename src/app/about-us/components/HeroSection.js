@@ -94,7 +94,7 @@ export default function HeroSection() {
             <div className="mt-2">Make Every Step Count.</div>
           </h1>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed md:leading-normal">
-            At Stairity, we&apos;re not just a{" "}
+            At Webestrix, we&apos;re not just a{" "}
             <span className="font-semibold">digital agency</span> — we&apos;re your
             partner in scalable success. We build high-performing websites,
             elevate user experience, and drive measurable growth. From

@@ -47,7 +47,7 @@ const HeroSection = () => {
             </span>
           </h1>
           <p className="mx-auto mb-8 pt-6 max-w-full text-xl leading-relaxed text-[#555] lg:mx-0">
-            Stairity helps startups grow with custom websites, branding, and
+            Webestrix helps startups grow with custom websites, branding, and
             digital marketing that transform ideas into powerful online
             identities.
           </p>
@@ -68,8 +68,8 @@ const HeroSection = () => {
         <div className="flex-[0.9] order-1 w-full lg:order-2 lg:max-w-lg lg:pl-8 pt-12">
           <div className="relative">
             <img
-              src="/images/stairity_mock.png"
-              alt="Stairity brand mockup"
+              src="/images/webestrix-mock.png"
+              alt="Webestrix brand mockup"
               className="mx-auto w-full max-w-lg lg:max-w-lg object-contain"
             />
           </div>

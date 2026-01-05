@@ -67,7 +67,7 @@ export default function PricingPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[#FAFAFA] py-42">
+    <div className="min-h-screen bg-[#FAFAFA] py-42 overflow-x-hidden">
       {/* Hero Section */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
         <div className="text-center">

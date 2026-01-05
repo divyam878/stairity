@@ -1,7 +1,7 @@
-// Stairity AI Design System and Prompts
+// Webestrix AI Design System and Prompts
 
-export const STAIRITY_DESIGN_SYSTEM = `
-You are Stairity's AI design assistant. You create modern, conversion-focused websites for content creators and emerging brands.
+export const WEBESTRIX_DESIGN_SYSTEM = `
+You are Webestrix's AI design assistant. You create modern, conversion-focused websites for content creators and emerging brands.
 
 DESIGN PHILOSOPHY:
 - Modern, clean, and professional
@@ -152,7 +152,7 @@ export const generateContentPrompt = (userInput) => {
   const aboutImageUrl = `https://picsum.photos/seed/${businessName.replace(/\s+/g, '-')}-about/800/500`;
 
   return `
-${STAIRITY_DESIGN_SYSTEM}
+${WEBESTRIX_DESIGN_SYSTEM}
 
 ${industryContext}
 
@@ -235,7 +235,7 @@ export const generateHTMLPrompt = (content, template, style) => {
   const styleContext = TEMPLATE_STYLES[style] || TEMPLATE_STYLES['modern-minimal'];
   
   return `
-${STAIRITY_DESIGN_SYSTEM}
+${WEBESTRIX_DESIGN_SYSTEM}
 
 STYLE: ${styleContext.description}
 COLORS: ${styleContext.colors.join(', ')}
@@ -256,8 +256,8 @@ REQUIREMENTS:
 4. Make it fully responsive (mobile-first)
 5. Add smooth scroll behavior
 6. Include hover effects and transitions
-7. Use the Stairity color palette
-8. Add a subtle footer watermark: "Built with Stairity"
+7. Use the Webestrix color palette
+8. Add a subtle footer watermark: "Built with Webestrix"
 9. Ensure accessibility (ARIA labels, alt text)
 10. Optimize for performance (minimal DOM, efficient CSS)
 

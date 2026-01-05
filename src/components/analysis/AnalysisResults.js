@@ -466,7 +466,7 @@ const AnalysisResults = ({ results, onClose }) => {
                   />
                 </div>
 
-                {/* Spinning Stairity logo */}
+                {/* Spinning Webestrix logo */}
                 <motion.div
                   animate={{
                     rotate: 360,
