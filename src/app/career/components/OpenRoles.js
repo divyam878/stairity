@@ -1,5 +1,5 @@
 import React from "react";
-import Underline from "@/src/components/Underline";
+import Underline from "@/components/Underline";
 // Data for the roles, ordered from OUTERMOST (top) to INNERMOST (bottom)
 const roles = [
   // 1. Content Creator (OUTERMOST - Dark Green/Teal)

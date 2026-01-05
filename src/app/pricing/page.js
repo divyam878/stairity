@@ -307,7 +307,7 @@ export default function PricingPage() {
               Start growing by choosing the plan that fits you best.
             </h2>
             <p className="text-gray-600 mb-8 max-w-lg mx-auto">
-              Whether you're just starting out or ready to scale, we have a solution tailored to help your business thrive online.
+              Whether you&apos;re just starting out or ready to scale, we have a solution tailored to help your business thrive online.
             </p>
             <Link
               href="/contact-us"

@@ -84,7 +84,7 @@ export default function WebsiteAnalyzerPage() {
           </h1>
           
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Get detailed insights about your website's speed, SEO, and performance
+            Get detailed insights about your website&apos;s speed, SEO, and performance
           </p>
         </div>
 
@@ -229,7 +229,7 @@ export default function WebsiteAnalyzerPage() {
                   <Lightbulb className="w-6 h-6 text-[#2B7FFF]" />
                   <h2 className="text-2xl font-bold text-black">How to Improve</h2>
                 </div>
-                <p className="text-sm text-gray-600 mb-6">Here's what you can do to make your website faster:</p>
+                <p className="text-sm text-gray-600 mb-6">Here&apos;s what you can do to make your website faster:</p>
                 <div className="space-y-3">
                   {result.opportunities.map((opportunity, index) => (
                     <div key={index} className="p-5 rounded-2xl bg-[#E8F4FF] border-l-4 border-[#2B7FFF]">

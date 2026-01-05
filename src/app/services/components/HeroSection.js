@@ -58,7 +58,7 @@ const HeroSection = () => {
             aria-label="Let's Build Your Brand Together"
           >
             <span className="flex items-center gap-2.5">
-              Let's Build Your Brand Together
+              Let&apos;s Build Your Brand Together
               <ArrowIcon className="w-6 h-6" />
             </span>
           </button>

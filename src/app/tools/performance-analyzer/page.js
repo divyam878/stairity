@@ -84,7 +84,7 @@ export default function PerformanceAnalyzerPage() {
           </h1>
           
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Get detailed insights about your website's speed, SEO, and performance
+            Get detailed insights about your website&apos;s speed, SEO, and performance
           </p>
         </div>
 
@@ -257,7 +257,7 @@ export default function PerformanceAnalyzerPage() {
             {/* Resource Metrics */}
             <div className="bg-white rounded-3xl p-8 border-2 border-[#2B7FFF] shadow-lg">
               <h2 className="text-2xl font-bold text-black mb-2">📦 Resource Analysis</h2>
-              <p className="text-sm text-gray-600 mb-6">Details about your website's size and resources</p>
+              <p className="text-sm text-gray-600 mb-6">Details about your website&apos;s size and resources</p>
               <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
                 {result.metrics && (
                   <>
@@ -315,7 +315,7 @@ export default function PerformanceAnalyzerPage() {
                   <Lightbulb className="w-6 h-6 text-[#2B7FFF]" />
                   <h2 className="text-2xl font-bold text-black">How to Improve</h2>
                 </div>
-                <p className="text-sm text-gray-600 mb-6">Here's what you can do to make your website faster:</p>
+                <p className="text-sm text-gray-600 mb-6">Here&apos;s what you can do to make your website faster:</p>
                 <div className="space-y-3">
                   {result.opportunities.map((opportunity, index) => (
                     <div key={index} className="p-5 rounded-2xl bg-[#E8F4FF] border-l-4 border-[#2B7FFF]">

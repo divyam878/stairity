@@ -105,7 +105,7 @@ export default function WebsiteBuilderForm({ onGenerate, isGenerating, error }) 
         {/* Business Name */}
         <div>
           <label className="block text-lg font-semibold text-black mb-3">
-            What's your business name? *
+            What&apos;s your business name? *
           </label>
           <input
             type="text"
@@ -144,7 +144,7 @@ export default function WebsiteBuilderForm({ onGenerate, isGenerating, error }) 
         {/* Target Audience */}
         <div>
           <label className="block text-lg font-semibold text-black mb-3">
-            Who's your target audience?
+            Who&apos;s your target audience?
           </label>
           <input
             type="text"

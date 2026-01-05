@@ -122,7 +122,7 @@ export default function VideoScriptsPage() {
               {/* Topic */}
               <div>
                 <label className="block text-sm font-semibold text-black mb-2">
-                  What's your video about? *
+                  What&apos;s your video about? *
                 </label>
                 <textarea
                   required
@@ -295,7 +295,7 @@ export default function VideoScriptsPage() {
                     💡 Want to improve this script?
                   </label>
                   <p className="text-xs text-[#166534] mb-3">
-                    Tell us what you'd like to change (e.g., "Make it more casual", "Add a joke", "Shorter hook")
+                    Tell us what you&apos;d like to change (e.g., &quot;Make it more casual&quot;, &quot;Add a joke&quot;, &quot;Shorter hook&quot;)
                   </p>
                   <textarea
                     value={refinementFeedback}

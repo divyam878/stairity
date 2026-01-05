@@ -60,7 +60,7 @@ const CTA = () => {
                 style={{ backgroundColor: DARK_PURPLE }}
               >
                 <div>
-                  <h3 className="text-2xl font-bold text-white mb-6">What You'll Get</h3>
+                  <h3 className="text-2xl font-bold text-white mb-6">What You&apos;ll Get</h3>
                   <ul className="space-y-4">
                     {benefits.map((benefit, index) => (
                       <li key={index} className="flex items-start">

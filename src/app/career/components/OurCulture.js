@@ -3,7 +3,7 @@
 import React from "react";
 import { FaGlobe, FaBullhorn, FaShoppingCart } from "react-icons/fa";
 import { MdWeb } from "react-icons/md";
-import Underline from "@/src/components/Underline";
+import Underline from "@/components/Underline";
 
 // Data for the culture boxes, replicating the colors and content from your provided service array
 const culturePerksData = [

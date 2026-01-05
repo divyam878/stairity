@@ -117,7 +117,7 @@ export default function SocialContentPage() {
               {/* Topic */}
               <div>
                 <label className="block text-sm font-semibold text-black mb-2">
-                  What's your post about? *
+                  What&apos;s your post about? *
                 </label>
                 <textarea
                   required

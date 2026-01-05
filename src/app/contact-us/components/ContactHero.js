@@ -62,7 +62,7 @@ export default function ContactHero() {
             {/* Subheading and Description */}
             <div className="mb-6 md:mb-8">
               <h2 className="text-xl sm:text-2xl md:text-3xl font-medium mb-3 md:mb-4">
-                Let's Build Something That Performs
+                Let&apos;s Build Something That Performs
               </h2>
               <p className="text-gray-600 text-sm sm:text-base md:text-lg max-w-md leading-relaxed">
                 Have a project in mind, need a website audit, or want to explore AI-powered tools? Drop us a message and our team will get back within 24 hours.
