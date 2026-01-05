@@ -11,18 +11,26 @@ export default function OurToolbox() {
   const designMarqueeRef = useRef(null);
   const otherMarqueeRef = useRef(null);
 
-  // Split logos into two groups
+  // Split 16 logos into two groups of 8
   const designLogos = [
     '/images/logos/logo1.svg',
     '/images/logos/logo2.svg',
     '/images/logos/logo3.svg',
     '/images/logos/logo4.svg',
-  ];
-  const otherLogos = [
     '/images/logos/logo5.svg',
     '/images/logos/logo6.svg',
     '/images/logos/logo7.svg',
     '/images/logos/logo8.svg',
+  ];
+  const otherLogos = [
+    '/images/logos/logo9.svg',
+    '/images/logos/logo10.svg',
+    '/images/logos/logo11.svg',
+    '/images/logos/logo12.svg',
+    '/images/logos/logo13.svg',
+    '/images/logos/logo14.svg',
+    '/images/logos/logo15.svg',
+    '/images/logos/logo16.svg',
   ];
 
   // Duplicate for infinite loop
