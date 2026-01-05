@@ -69,7 +69,7 @@ export default function OurWork() {
   }, []);
 
   return (
-    <div className="relative w-full min-h-screen flex items-center justify-center bg-white overflow-hidden px-6 md:px-12">
+    <div className="relative w-full min-h-screen flex items-center justify-center bg-[#FAFAFA] overflow-hidden px-6 md:px-12">
       <div className="w-full mx-auto ">
         {/* Section Header - Left Aligned */}
         <div className="mb-12 w-full max-w-3xl lg:pl-12 ">
@@ -107,7 +107,7 @@ export default function OurWork() {
           <div className="flex space-x-0 w-full">
             {duplicatedImages.map((item, idx) => (
               <div key={`${item.alt}-${idx}`} className="group relative flex-shrink-0">
-                <div className="relative w-[300px] h-[200px] md:w-[400px] md:h-[250px] lg:w-[600px] lg:h-[500px] overflow-hidden rounded-xl">
+                <div className="relative w-[340px] h-[280px] md:w-[450px] md:h-[350px] lg:w-[600px] lg:h-[500px] overflow-hidden rounded-xl">
                   <Image
                     src={item.src}
                     alt={item.alt}

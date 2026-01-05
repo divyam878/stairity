@@ -72,10 +72,19 @@ export default function HeroSection() {
     };
   }, [statRefs.websites, statRefs.pages, statRefs.roi, statRefs.businesses]);
   return (
-    <div className="w-full min-h-[calc(100vh-80px)] mt-20 bg-[#FAFAFA] py-20 px-0">
-      <div className="w-full">
+    <div className="w-full min-h-[calc(100vh-80px)] mt-20 bg-[#FAFAFA] py-20 px-0 relative overflow-hidden">
+      {/* Dotted Background Pattern */}
+      <div 
+        className="absolute inset-0 z-0 opacity-40 pointer-events-none"
+        style={{
+          backgroundImage: 'radial-gradient(#9ca3af 1.5px, transparent 1.5px)',
+          backgroundSize: '32px 32px'
+        }}
+      />
+      
+      <div className="w-full relative z-10">
         <div className="text-center mb-16 px-4 md:px-6 lg:px-8">
-          <h1 className="text-4xl md:text-6xl font-bold mb-6">
+          <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-snug md:leading-tight">
             From{" "}
             <span className="font-light font-hello text-[#ACD9D9]">
               Insights
@@ -84,7 +93,7 @@ export default function HeroSection() {
             We
             <div className="mt-2">Make Every Step Count.</div>
           </h1>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed md:leading-normal">
             At Stairity, we&apos;re not just a{" "}
             <span className="font-semibold">digital agency</span> — we&apos;re your
             partner in scalable success. We build high-performing websites,
@@ -97,18 +106,18 @@ export default function HeroSection() {
         {/* Stats and CTA */}
         <div className="relative w-full h-[400px] mb-0">
           {/* Left side stats at bottom */}
-          <div className="absolute left-0 bottom-0 flex w-[400px]">
+          <div className="absolute left-0 bottom-0 flex w-[50%] md:w-[400px]">
             {/* Left (taller) card with higher z-index and rightward shadow */}
             <div 
               ref={statRefs.websites}
-              className="relative h-[400px] w-1/2 bg-white shadow-[40px_0_40px_rgba(0,0,0,0.08)] z-20 p-6"
+              className="relative h-[400px] w-1/2 bg-white shadow-[40px_0_40px_rgba(0,0,0,0.08)] z-20 p-2 md:p-6"
             >
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center">
-                <div className="text-5xl font-bold whitespace-nowrap">
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center w-full">
+                <div className="text-xl md:text-5xl font-bold whitespace-nowrap">
                   <span className="stat-number">0</span>
                   <span className="text-[#7ED6D1]">+</span>
                 </div>
-                <div className="text-gray-600 text-left mt-2">
+                <div className="text-gray-600  mt-1 md:mt-2 text-[10px] md:text-base leading-tight mx-auto">
                   Websites
                   <br />
                   Analyzed
@@ -119,14 +128,14 @@ export default function HeroSection() {
             {/* Right (shorter) card that sits *under* the shadow of the left */}
             <div 
               ref={statRefs.pages}
-              className="relative h-[300px] mt-25 w-1/2 bg-white shadow-[20px_0_30px_rgba(0,0,0,0.05)] z-10 p-6"
+              className="relative h-[300px] mt-25 w-1/2 bg-white shadow-[20px_0_30px_rgba(0,0,0,0.05)] z-10 p-2 md:p-6"
             >
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center">
-                <div className="text-5xl font-bold whitespace-nowrap">
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center w-full">
+                <div className="text-xl md:text-5xl font-bold whitespace-nowrap">
                   <span className="stat-number">0</span>
                   <span className="text-[#7ED6D1]">+</span>
                 </div>
-                <div className="text-gray-600 text-left mt-2">
+                <div className="text-gray-600  mt-1 md:mt-2 text-[10px] md:text-base leading-tight mx-auto">
                   Pages
                   <br />
                   Optimized
@@ -136,7 +145,7 @@ export default function HeroSection() {
           </div>
 
           {/* Center button */}
-          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
+          <div className="absolute left-1/2 top-1/8 md:top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
             <Link
               href="/contact-us"
               className="inline-block bg-white text-black px-8 py-3 text-lg font-medium rounded-full shadow-[0_0_20px_rgba(0,0,0,0.1)] hover:shadow-[0_0_30px_rgba(0,0,0,0.15)] transition-shadow duration-200"
@@ -146,17 +155,17 @@ export default function HeroSection() {
           </div>
 
           {/* Right side stats at bottom */}
-          <div className="absolute right-0 bottom-0 flex gap-0 w-[400px]">
+          <div className="absolute right-0 bottom-0 flex gap-0 w-[50%] md:w-[400px]">
             <div 
               ref={statRefs.roi}
-              className="relative h-[300px] w-1/2 bg-white shadow-[-40px_0_40px_rgba(0,0,0,0.08)] mt-25 p-6"
+              className="relative h-[300px] w-1/2 bg-white shadow-[-40px_0_40px_rgba(0,0,0,0.08)] mt-25 p-2 md:p-6"
             >
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center">
-                <div className="text-5xl font-bold whitespace-nowrap">
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center w-full">
+                <div className="text-xl md:text-5xl font-bold whitespace-nowrap">
                   <span className="stat-number">0</span>
                   <span className="text-[#7ED6D9]">%</span>
                 </div>
-                <div className="text-gray-600 text-right mt-2">
+                <div className="text-gray-600 mt-1 md:mt-2 text-[10px] md:text-base leading-tight">
                   ROI
                   <br />
                   Increase
@@ -166,14 +175,14 @@ export default function HeroSection() {
 
             <div 
               ref={statRefs.businesses}
-              className="relative h-[400px] w-1/2 bg-white shadow-[-40px_0_40px_rgba(0,0,0,0.08)] p-6"
+              className="relative h-[400px] w-1/2 bg-white shadow-[-40px_0_40px_rgba(0,0,0,0.08)] p-2 md:p-6"
             >
-              <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center">
-                <div className="text-5xl font-bold whitespace-nowrap">
+              <div className="absolute top-6 left-1/2 -translate-x-1/2 text-center w-full">
+                <div className="text-xl md:text-5xl font-bold whitespace-nowrap">
                   <span className="stat-number">0</span>
                   <span className="text-[#7ED6D1]">+</span>
                 </div>
-                <div className="text-gray-600 text-right mt-2">
+                <div className="text-gray-600 mt-1 md:mt-2 text-[10px] md:text-base leading-tight">
                   Businesses
                   <br />
                   Trusted

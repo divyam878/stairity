@@ -57,7 +57,7 @@ const ProblemCard = ({ emoji, title, className = "" }) => (
 
 export default function DesignExperience() {
   return (
-    <section className="bg-white py-16 px-4 md:px-12 lg:px-20">
+    <section className="bg-[#FAFAFA] py-16 px-4 md:px-12 lg:px-20">
       <div className="max-w-full mx-auto">
         <div className="text-left mb-16">
           <h1 className="text-3xl md:text-5xl lg:text-5xl  font-light text-gray-500 mb-2">

@@ -61,6 +61,7 @@ body {
         opacity: 0;
         transform: translateY(-10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -75,9 +76,11 @@ body {
     0% {
         transform: translateY(0px);
     }
+
     50% {
         transform: translateY(-20px);
     }
+
     100% {
         transform: translateY(0px);
     }
@@ -87,6 +90,7 @@ body {
     0% {
         background-position: 0 0;
     }
+
     100% {
         background-position: 40px 40px;
     }
@@ -98,8 +102,114 @@ body {
     opacity: 1;
     animation: patternFloat 8s linear infinite;
     pointer-events: none;
-    z-index: -1; /* 👈 Push it to back */
-    position: absolute; /* Required for z-index to work with stacking */
+    z-index: -1;
+    /* 👈 Push it to back */
+    position: absolute;
+    /* Required for z-index to work with stacking */
+}
+
+/* Google gradient animation */
+@keyframes googleGradient {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* Animated gradient text on hover */
+.google-gradient-text {
+    transition: all 0.3s ease;
+}
+
+.group:hover .google-gradient-text {
+    background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335, #4285F4);
+    background-size: 300% 100%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: googleGradient 5s linear infinite;
+}
+
+/* Animated gradient border card */
+.google-border-card {
+    position: relative;
+}
+
+.google-border-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 1.5rem;
+    padding: 2px;
+    background: linear-gradient(90deg, #4285F4, #34A853, #FBBC05, #EA4335, #4285F4);
+    background-size: 300% 100%;
+    -webkit-mask:
+        linear-gradient(#fff 0 0) content-box,
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+}
+
+.group:hover .google-border-card::before {
+    opacity: 1;
+    animation: googleGradient 5s linear infinite;
+}
+
+/* Animated dashed border - marching ants */
+@keyframes marchingAnts {
+    0% {
+        stroke-dashoffset: 0;
+    }
+
+    100% {
+        stroke-dashoffset: -20;
+    }
+}
+
+.dashed-border-card {
+    position: relative;
+}
+
+.marching-ants-border {
+    position: absolute;
+    inset: -6px;
+    width: calc(100% + 12px);
+    height: calc(100% + 12px);
+    pointer-events: none;
+    overflow: visible;
+}
+
+.marching-ants-border-inner {
+    position: absolute;
+    inset: 6px;
+    width: calc(100% - 12px);
+    height: calc(100% - 12px);
+    pointer-events: none;
+    z-index: 20;
+}
+
+.marching-ants-border rect,
+.marching-ants-border-inner rect {
+    fill: none;
+    stroke: #d1d5db;
+    stroke-width: 2;
+    stroke-dasharray: 8 6;
+}
+
+.group:hover .marching-ants-border rect,
+.group:hover .marching-ants-border-inner rect {
+    stroke: #9ca3af;
+    animation: marchingAnts 0.5s linear infinite;
 }
 
 :root {
@@ -172,10 +282,11 @@ body {
 }
 
 @layer base {
-  * {
-    @apply border-border outline-ring/50;
+    * {
+        @apply border-border outline-ring/50;
     }
-  body {
-    @apply bg-background text-foreground;
+
+    body {
+        @apply bg-background text-foreground;
     }
 }

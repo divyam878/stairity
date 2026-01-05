@@ -348,7 +348,7 @@ const HeroSection = () => {
   };
 
   return (
-    <div className="w-full min-h-[calc(100vh)] pt-32 px-6 bg-[#F6F6F6] relative overflow-hidden">
+    <div className="w-full min-h-[calc(100vh)] pt-32 px-6 bg-[#FAFAFA] relative overflow-hidden">
       {/* Dotted grid background */}
       <div className="absolute inset-0 bg-repeat opacity-30 z-0" />
 

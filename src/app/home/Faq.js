@@ -56,7 +56,7 @@ const Faq = () => {
   };
 
   return (
-    <section className="py-20 px-5 bg-white w-full box-border text-left">
+    <section className="py-20 px-5 bg-[#FAFAFA] w-full box-border text-left">
       <div className="w-full max-w-[1200px] mx-auto">
         <div className="mb-16 w-full">
           <span className="block text-xs font-semibold text-[#9AA1AE] uppercase tracking-wider mb-4 text-left w-full">

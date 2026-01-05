@@ -29,12 +29,12 @@ const WhyUs = () => {
   ];
 
   return (
-    <section className="relative w-full flex flex-col items-center bg-[#F6F6F6] overflow-hidden py-16 md:py-24">
+    <section className="relative w-full flex flex-col items-center bg-[#FAFAFA] overflow-hidden py-16 md:py-24">
       {/* Top Wave */}
-      <WaveDivider className="absolute top-0 left-0 right-0" flip={false} fill="#F6F6F6" />
+      <WaveDivider className="absolute top-0 left-0 right-0" flip={false} fill="#FAFAFA" />
       
       {/* Bottom Wave */}
-      <WaveDivider className="absolute bottom-0 left-0 right-0" flip={true} fill="#F6F6F6" />
+      <WaveDivider className="absolute bottom-0 left-0 right-0" flip={true} fill="#FAFAFA" />
 
       <div className="w-full relative z-10">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

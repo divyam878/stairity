@@ -42,7 +42,7 @@ const services = [
 
 export default function OurServices() {
   return (
-    <section className="py-16 px-4 md:px-12 lg:px-12 bg-white">
+    <section className="py-16 px-4  bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto h-full flex flex-col lg:flex-row justify-between items-start gap-12">
         {/* Left Section  */}
         <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 gap-6 order-2 ">

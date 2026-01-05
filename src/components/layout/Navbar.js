@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { Wand2 } from 'lucide-react';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,8 +38,17 @@ const Navbar = () => {
             <Link href="/services" className="text-2xl md:text-sm lg:text-base text-gray-700 hover:text-gray-900 font-medium">
               Services
             </Link>
-            <Link href="/tools" className="text-gray-700 hover:text-gray-900 font-medium text-2xl md:text-sm lg:text-base">
-              Tools
+            <Link href="/tools" className="relative group">
+              <div 
+                className="flex items-center gap-1.5 px-3 py-1.5 rounded-full transition-all shadow-md hover:shadow-lg relative"
+                style={{ 
+                  background: 'linear-gradient(#FDFDFB, #FDFDFB) padding-box, linear-gradient(90deg, #4285F4 0%, #34A853 33%, #FBBC05 66%, #EA4335 100%) border-box',
+                  border: '2px solid transparent'
+                }}
+              >
+                <Wand2 className="w-4 h-4" style={{ color: '#4285F4' }} />
+                <span className="font-semibold text-sm lg:text-base text-gray-700">AI Tools</span>
+              </div>
             </Link>
             <Link href="/career" className="text-gray-700 hover:text-gray-900 font-medium text-2xl md:text-sm lg:text-base">
               Career
@@ -110,10 +120,19 @@ const Navbar = () => {
               </Link>
               <Link 
                 href="/tools" 
-                className="text-2xl md:text-sm lg:text-base text-gray-700 hover:text-gray-900 font-medium py-2 border-b border-gray-200"
+                className="py-2 border-b border-gray-200"
                 onClick={() => setIsMenuOpen(false)}
               >
-                Tools
+                <div 
+                  className="flex items-center gap-2 px-4 py-2 rounded-full transition-all shadow-md w-fit"
+                  style={{ 
+                    background: 'linear-gradient(#FDFDFB, #FDFDFB) padding-box, linear-gradient(90deg, #4285F4 0%, #34A853 33%, #FBBC05 66%, #EA4335 100%) border-box',
+                    border: '2px solid transparent'
+                  }}
+                >
+                  <Wand2 className="w-5 h-5" style={{ color: '#4285F4' }} />
+                  <span className="font-semibold text-xl text-gray-700">AI Tools</span>
+                </div>
               </Link>
               <Link 
                 href="/career" 

@@ -11,7 +11,7 @@ import Industries from "./home/Industries";
 import Faq from "./home/Faq";
 export default function Home() {
   return (
-    <main className="flex flex-col items-center w-full justify-center min-h-screen bg-white overflow-hidden">
+    <main className="flex flex-col items-center w-full justify-center min-h-screen bg-[#FAFAFA] overflow-hidden">
       <HeroSection />
       <KeepCalm />
       <OurServices />

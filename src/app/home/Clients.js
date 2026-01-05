@@ -41,7 +41,7 @@ const clientData = [
 
 const Clients = () => {
   return (
-    <section className="py-16 bg-white sm:py-24 w-full">
+    <section className="py-16 bg-[#FAFAFA] sm:py-24 w-full">
       <div className="max-w-[1800px] mx-auto px-4 sm:px-8 lg:px-12 w-full">
         <div className="text-center">
           <h3 className="text-sm font-semibold text-gray-500 tracking-wider uppercase">

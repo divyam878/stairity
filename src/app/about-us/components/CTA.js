@@ -19,7 +19,7 @@ export default function CTA() {
               <div className="flex flex-col lg:flex-row items-center">
                 {/* Text Content */}
                 <div className="lg:w-1/2 mb-12 lg:mb-0 lg:pr-12">
-                  <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight text-gray-900">
+                  <h2 className="text-4xl md:text-5xl font-medium mb-6 leading-tight text-gray-900">
                     Ready to transform your digital presence?
                   </h2>
                   <p className="text-xl text-gray-700 mb-8 max-w-2xl relative pl-6">
@@ -35,16 +35,15 @@ export default function CTA() {
                 </div>
                 
                 {/* Image */}
-                <div className="lg:w-1/2 relative">
-                  <div className="relative w-full h-64 lg:h-96">
+                <div className="w-full lg:w-1/2 mt-12 lg:mt-0 flex hidden md:flex justify-center sticky relative z-20">
                     <Image
                       src="/images/CTAimage.svg"
                       alt="Digital Transformation"
-                      fill
-                      className="object-contain"
+                      width={500}
+                      height={400}
+                      className="w-full h-auto max-w-[300px] lg:max-w-[350px] object-contain"
                       priority
                     />
-                  </div>
                 </div>
               </div>
             </div>

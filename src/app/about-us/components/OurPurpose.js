@@ -1,9 +1,11 @@
-'use client';
+"use client";
 
-import { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Image from 'next/image';
+import { useRef, useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Image from "next/image";
+import Folder from "../../../components/Folder/Folder";
+import Underline from "../../../components/Underline";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -11,24 +13,57 @@ export default function OurPurpose() {
   const sectionRef = useRef(null);
 
   useEffect(() => {
-    gsap.from(sectionRef.current.querySelector('.title-container'), {
-      scrollTrigger: {
-        trigger: sectionRef.current,
-        start: 'top 80%',
-        toggleActions: 'play none none none',
-      },
-      y: 30,
-      opacity: 0,
-      duration: 0.8,
-      ease: 'power2.out',
-    });
+    // Small delay to ensure DOM is ready on client-side navigation
+    const timer = setTimeout(() => {
+      ScrollTrigger.refresh();
+      
+      const titleContainer = sectionRef.current?.querySelector(".title-container");
+      if (titleContainer) {
+        gsap.fromTo(
+          titleContainer,
+          { y: 30, opacity: 0 },
+          {
+            scrollTrigger: {
+              trigger: sectionRef.current,
+              start: "top 80%",
+              toggleActions: "play none none none",
+            },
+            y: 0,
+            opacity: 1,
+            duration: 0.8,
+            ease: "power2.out",
+          }
+        );
+      }
+    }, 100);
+
+    return () => {
+      clearTimeout(timer);
+      ScrollTrigger.getAll().forEach(trigger => trigger.kill());
+    };
   }, []);
 
   const services = [
-    { title: 'Digital Strategy &', subtitle: 'Growth', color: 'bg-[#3498DB]' },
-    { title: 'Modern Web', subtitle: 'Development', color: 'bg-[#F1C40F]' },
-    { title: 'CSS Optimization', subtitle: 'Tools', color: 'bg-[#2ECC71]' },
-    { title: 'Web Performance', subtitle: 'Analyzer', color: 'bg-[#E74C3C]' },
+    { 
+      title: "Digital Strategy", 
+      description: "We craft data-driven blueprints to accelerate your digital growth and market presence.", 
+      color: "bg-[#3498DB]" 
+    },
+    { 
+      title: "Modern Web Dev", 
+      description: "Building blazing fast, scalable, and secure web applications using next-gen technologies.", 
+      color: "bg-[#F1C40F]" 
+    },
+    { 
+      title: "CSS Optimization", 
+      description: "Refining styles for pixel-perfect, lightweight, and performant user interfaces.", 
+      color: "bg-[#2ECC71]" 
+    },
+    { 
+      title: "Web Performance", 
+      description: "Analyzing and optimizing core web vitals to ensure top-tier speed and user experience.", 
+      color: "bg-[#E74C3C]" 
+    },
   ];
 
   return (
@@ -38,77 +73,34 @@ export default function OurPurpose() {
     >
       <div className="container mx-auto px-4">
         <div className="title-container text-center mb-16">
-          <p className="text-gray-500 uppercase tracking-wide mb-4">OUR PURPOSE</p>
-          <div className="flex items-center justify-center gap-2 mb-8">
-            <h2 className="text-5xl font-bold">What We Do</h2>
-            <Image
-              src="/images/questionMarkDoodle.svg"
-              alt="Question Mark"
-              width={40}
-              height={40}
-              className="ml-2"
-            />
-          </div>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Whether you&apos;re a startup or a growing brand, our focus is the same:
-            turn your website into your strongest asset.
+          <h3 className="text-sm font-semibold text-gray-500 tracking-wider uppercase pb-4">
+            Our Purpose
+          </h3>
+          <h1 className="text-3xl md:text-5xl lg:text-5xl font-light text-black mb-2">
+            What We
+            <span className="relative text-3xl md:text-5xl lg:text-5xl inline-block font-hello font-medium p-3">
+              Do ?
+              <div
+                className="absolute -bottom-2 md:-bottom-2 lg:-bottom-3 left-1/2 -translate-x-1/2"
+                style={{ width: "100%" }}
+              >
+                <Underline color="#00bf63" width="100%" thickness="4" />
+              </div>
+            </span>
+          </h1>
+          <p className="text-xl text-gray-600 max-w-2xl mx-auto mt-4">
+            Whether you&apos;re a startup or a growing brand, our focus is the
+            same: turn your website into your strongest asset.
           </p>
         </div>
 
-        <div className="relative mt-32 w-full h-[900px] mx-auto">
-          {/* Back rotated rectangle */}
-          <Image
-            src="/images/rotatedrectangleback.svg"
-            alt="Background Shape"
-            fill
-            className="absolute z-0 object-contain ml-18 lg:scale-x-[1.2] lg:scale-y-[1.005] hidden xl:block"
-            style={{ filter: 'drop-shadow(0 -8px 12px rgba(0, 0, 0, 0.1))' }}
-          />
-
-          {/* Colored service cards */}
-          <Image
-            src="/images/bluecard.svg"
-            alt="Blue Card"
-            fill
-            className="absolute z-1 object-contain"
-            style={{ filter: 'drop-shadow(0 -4px 12px rgba(0, 0, 0, 0.15))' }}
-          />
-          <Image
-            src="/images/yellowcard.svg"
-            alt="Yellow Card"
-            fill
-            className="absolute z-2 object-contain mt-10"
-            style={{ filter: 'drop-shadow(0 -4px 12px rgba(0, 0, 0, 0.15))' }}
-          />
-          <Image
-            src="/images/greencard.svg"
-            alt="Green Card"
-            fill
-            className="absolute z-3 object-contain mt-20"
-            style={{ filter: 'drop-shadow(0 -4px 12px rgba(0, 0, 0, 0.15))' }}
-          />
-          <Image
-            src="/images/redcard.svg"
-            alt="Red Card"
-            fill
-            className="absolute z-4 object-contain mt-40"
-            style={{ filter: 'drop-shadow(0 -4px 12px rgba(0, 0, 0, 0.15))' }}
-          />
-
-          {/* Front elements */}
-          <Image
-            src="/images/rotatedrectanglefront.svg"
-            alt="Front Shape"
-            fill
-            className="absolute z-5 object-contain ml-125 mt-2 lg:scale-x-[2.2] lg:scale-y-[1.01] hidden xl:block"
-            style={{ filter: 'drop-shadow(0 -4px 8px rgba(0, 0, 0, 0.1))' }}
-          />
-          <Image
-            src="/images/graycardfronthorizontal.svg"
-            alt="Gray Card"
-            fill
-            className="absolute z-6 object-contain mt-60 scale-[1.03]"
-            style={{ filter: 'drop-shadow(0 -9px 12px rgba(0, 0, 0, 0.1))' }}
+        
+        <div className="relative h-[400px] md:h-[600px] flex justify-center items-center border border-dashed border-[#ccc] mt-8 w-[90%] md:w-full mx-auto">
+          <Folder 
+            size={5} 
+            color="#d9d9d9" 
+            className="custom-folder scale-75 md:scale-100"
+            items={services}
           />
         </div>
       </div>

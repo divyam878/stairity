@@ -15,7 +15,7 @@ const Calender = ({
       "Cal.com: calLink prop is not set or is using the placeholder value.",
     );
     return (
-      <section className="py-16 bg-white sm:py-24">
+      <section className="py-16 bg-[#FAFAFA] sm:py-24">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h1 className="text-4xl font-regular text-gray-900 sm:text-5xl md:text-6xl mb-12">
             Start your project with a conversation.
@@ -56,7 +56,7 @@ const Calender = ({
   }
 
   return (
-    <section className="py-16 bg-white sm:py-24">
+    <section className="py-16 bg-[#FAFAFA] sm:py-24">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-4xl font-light text-gray-900 sm:text-5xl md:text-5xl mb-12">
           Start your project with a conversation.

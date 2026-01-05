@@ -99,7 +99,7 @@ export default function OurToolbox() {
       </div>
       <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">Our Toolbox</h2>
+          <h2 className="text-4xl md:text-5xl font-regular mb-4">Our Toolbox</h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             We use industry-leading tools and technologies to deliver exceptional results
           </p>

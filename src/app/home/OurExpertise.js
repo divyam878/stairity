@@ -1,7 +1,7 @@
 import Underline from "../../components/Underline";
 export default function OurExpertise() {
   return (
-    <div className="w-full bg-white min-h-screen py-12 px-4">
+    <div className="w-full bg-[#FAFAFA] min-h-screen py-12 px-4">
       <div className="w-full max-w-7xl mx-auto relative">
         {/* Corner squares */}
         <div className="absolute -top-2 -left-2 w-4 h-4 border-t-2 border-l-2 border-gray-200 z-10 bg-white"></div>

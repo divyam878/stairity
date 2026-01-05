@@ -2,7 +2,7 @@ import Image from "next/image";
 import Underline from "../../components/Underline";
 export default function KeepCalm() {
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center bg-[#F6F6F6] overflow-hidden px-6 md:px-12">
+    <section className="relative w-full min-h-screen flex items-center justify-center bg-[#FAFAFA] overflow-hidden px-6 md:px-12">
       {/* Optional Pattern Background */}
       <div className="absolute inset-0 w-full h-full pattern-background z-0" />
 

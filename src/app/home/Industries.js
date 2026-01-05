@@ -180,7 +180,7 @@ const industries = [
 
 const IndustryCard = ({ industry }) => {
   return (
-    <div className="relative aspect-square w-full rounded-[4rem] overflow-hidden bg-[#D9D9D9]  hover:shadow-md transition-all duration-300 group">
+    <div className="relative h-[500px] md:h-auto md:aspect-square w-full rounded-[4rem] overflow-hidden bg-[#D9D9D9]  hover:shadow-md transition-all duration-300 group">
       <div className="p-10 h-full flex flex-col">
         <div className="mb-8">
           {React.cloneElement(industry.icon, {
@@ -267,12 +267,28 @@ const IndustryCard = ({ industry }) => {
 const Industries = () => {
   const scrollContainerRef = useRef(null);
   const [currentIndex, setCurrentIndex] = useState(0);
-  const cardWidth = 450; // Width of each card including padding (w-[450px] + px-2 = 450 + 16 = 466)
+  const [cardWidth, setCardWidth] = useState(450);
   const gap = 24; // space-x-6 = 1.5rem = 24px
   const scrollAmount = cardWidth + gap;
   const totalCards = industries.length;
   const [isAutoScrolling, setIsAutoScrolling] = useState(true);
   const autoScrollInterval = useRef(null);
+
+  // Update card width on resize to prevent mobile overflow
+  useEffect(() => {
+    const updateWidth = () => {
+      // If mobile, use 85% of screen width. Else 450px.
+      if (window.innerWidth < 768) {
+        setCardWidth(window.innerWidth * 0.85);
+      } else {
+        setCardWidth(450);
+      }
+    };
+
+    updateWidth();
+    window.addEventListener("resize", updateWidth);
+    return () => window.removeEventListener("resize", updateWidth);
+  }, []);
 
   const scrollToCard = (index) => {
     if (!scrollContainerRef.current) return;
@@ -311,7 +327,7 @@ const Industries = () => {
         clearInterval(autoScrollInterval.current);
       }
     };
-  }, [currentIndex, isAutoScrolling]);
+  }, [currentIndex, isAutoScrolling, cardWidth]);
 
   const handleMouseEnter = () => {
     setIsAutoScrolling(false);
@@ -325,90 +341,90 @@ const Industries = () => {
   };
 
   return (
-    <section className="py-20 bg-white">
-      <div className="container mx-auto px-4">
-        {/* Section Label */}
-        <div className="text-xs font-semibold text-gray-400 mb-3 uppercase tracking-widest">
-          INDUSTRIES
+    <section className="w-full bg-[#FAFAFA] py-20 lg:py-32" id="industries">
+      <div className="container mx-auto px-4 md:px-8">
+        
+        {/* HEADER SECTION - Simplified Layout */}
+        <div className="flex flex-col mb-12 md:mb-16">
+          <span className="text-xs font-bold text-gray-400 tracking-[0.2em] mb-4">
+            INDUSTRIES
+          </span>
+          
+          <h2 className="text-4xl md:text-6xl font-light text-black leading-tight">
+            Built for Every <br className="hidden md:block" />
+            <span className="relative inline-block font-medium font-hello">
+              Industry
+              {/* Underline - distinct positioning */}
+              <div className="absolute left-0 right-0 -bottom-2 h-4">
+                 <Underline color="#FECE2E" width="100%" thickness="4" />
+              </div>
+            </span>
+          </h2>
+          
+          <h2 className="text-4xl md:text-6xl font-normal text-black mt-2 mb-8">
+            That Dreams Big
+          </h2>
+
+          <p className="text-lg md:text-xl text-gray-500 max-w-2xl leading-relaxed">
+            From real estate to restaurants, finance to fitness, brands across the
+            globe trust us to deliver results-driven experiences that grow with
+            their business.
+          </p>
         </div>
 
-        {/* Main Heading with Underline */}
-        <h1 className="text-4xl md:text-5xl lg:text-5xl font-light leading-tight text-black relative">
-          Built for Every{" "}
-          <span className="relative text-3xl md:text-5xl lg:text-5xl font-medium font-hello inline-block">
-            Industry
-            <div
-              className="absolute -bottom-3 left-1/2 -translate-x-1/2"
-              style={{ width: "100%" }}
-            >
-              <Underline color="#FECE2E" width="100%" thickness="4" />
-            </div>
-          </span>
-        </h1>
-        <h1 className="text-4xl md:text-5xl lg:text-5xl font-regular leading-tight text-black relative mb-8">
-          That Dreams Big
-        </h1>
-        <p className="text-lg text-gray-500 mb-12">
-          From real estate to restaurants, finance to fitness, brands across the
-          globe trust us to deliver results-driven experiences that grow with
-          their business.
-        </p>
-        <div className="relative group">
-          <div className="flex items-center">
-            <button
+        {/* CAROUSEL SECTION - Native Scroll first approach */}
+        <div className="relative w-full">
+          
+          {/* Scroll Container */}
+          <div
+            ref={scrollContainerRef}
+            className="flex gap-6 overflow-x-auto pb-8 w-full snap-x snap-mandatory no-scrollbar"
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+            onTouchStart={handleMouseEnter}
+            style={{ scrollBehavior: 'smooth' }}
+          >
+            {industries.map((industry, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[85vw] md:w-[450px] snap-center md:snap-start"
+              >
+                <IndustryCard industry={industry} />
+              </div>
+            ))}
+          </div>
+
+          {/* Controls - Only show on desktop for clarity, swipe is best for mobile */}
+          <div className="hidden md:flex justify-end gap-4 mt-8">
+             <button
               onClick={prevCard}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md text-gray-700 hover:bg-gray-100 transition-all absolute left-4 z-10 opacity-0 group-hover:opacity-100"
-              aria-label="Previous card"
+              className="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+              aria-label="Previous"
             >
               &larr;
             </button>
-
-            <div
-              ref={scrollContainerRef}
-              className="flex overflow-x-hidden pb-6 -mx-4 px-4 w-full snap-x snap-mandatory"
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
-              <div className="flex space-x-6">
-                {industries.map((industry, index) => (
-                  <div
-                    key={index}
-                    className="flex-shrink-0 w-[450px] px-2 snap-start"
-                  >
-                    <IndustryCard industry={industry} />
-                  </div>
-                ))}
-              </div>
-            </div>
-
             <button
               onClick={nextCard}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              className="hidden md:flex items-center justify-center w-12 h-12 rounded-full bg-white shadow-md text-gray-700 hover:bg-gray-100 transition-all absolute right-4 z-10 opacity-0 group-hover:opacity-100"
-              aria-label="Next card"
+              className="w-14 h-14 rounded-full border border-gray-200 flex items-center justify-center hover:bg-black hover:text-white transition-colors"
+              aria-label="Next"
             >
               &rarr;
             </button>
           </div>
 
-          {/* Navigation dots */}
-          <div className="flex justify-center mt-6 space-x-2">
-            {industries.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => scrollToCard(index)}
-                onMouseEnter={handleMouseEnter}
-                onMouseLeave={handleMouseLeave}
-                className={`w-3 h-3 rounded-full transition-all ${currentIndex === index ? "bg-gray-800 w-8" : "bg-gray-300"}`}
-                aria-label={`Go to card ${index + 1}`}
-              />
-            ))}
-          </div>
         </div>
+
       </div>
+
+      <style jsx>{`
+        .no-scrollbar::-webkit-scrollbar {
+          display: none;
+        }
+        .no-scrollbar {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+      `}</style>
     </section>
   );
 };
