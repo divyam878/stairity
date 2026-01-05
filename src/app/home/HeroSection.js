@@ -435,7 +435,7 @@ const HeroSection = () => {
               
               {/* Logo Image */}
               <div className="relative z-10 w-3/4 h-3/4 flex items-center justify-center p-2">
-                <Image
+                <img
                   src="/images/stairityLogoHalf.svg"
                   alt="Stairity Logo"
                   width={120}

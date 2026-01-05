@@ -21,12 +21,11 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-3">
           {/* Logo */}
           <Link href="/" className="flex items-center">
-            <Image 
+            <img 
               src="/images/stairityLogofull.svg" 
               alt="Stairity Logo" 
               width={120} 
               height={40} 
-              priority
             />
           </Link>
           
