@@ -81,8 +81,8 @@ const WhyUs = () => {
             {/* Image Section */}
             <div className="w-full lg:w-1/2 flex items-center">
               <div className="relative w-full max-w-2xl mx-auto">
-                <Image
-                  src="/images/whyUsImage.png"
+                <img
+                  src="/images/whyUsImage.jpeg"
                   alt="Why Choose Us"
                   width={700}
                   height={700}
