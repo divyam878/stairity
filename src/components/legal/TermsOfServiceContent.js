@@ -69,7 +69,7 @@ const TermsOfServiceContent = () => {
 
       <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-4">Contact</h3>
       <p className="mb-6">
-        For any questions regarding these Terms of Service, please contact us at hello@webestrix.com.
+        For any questions regarding these Terms of Service, please contact us at webestrix@gmail.com.
       </p>
     </div>
   );

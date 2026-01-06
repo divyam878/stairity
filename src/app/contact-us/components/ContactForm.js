@@ -29,14 +29,6 @@ export default function ContactForm() {
 
   return (
     <section id="contact-form" className="relative bg-[#FAFAFA] py-10 sm:py-12 md:py-16">
-      {/* Dotted background pattern */}
-      <div 
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: 'radial-gradient(#e5e7eb 1.5px, transparent 1px)',
-          backgroundSize: '24px 24px'
-        }}
-      />
       
       {/* Vertical lines - hidden on mobile */}
       <div className="absolute top-0 bottom-0 left-[15%] w-px bg-gray-300 hidden md:block"></div>

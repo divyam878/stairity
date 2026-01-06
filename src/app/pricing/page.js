@@ -12,7 +12,7 @@ export default function PricingPage() {
 
   const pricingPlans = [
     {
-      name: "Free Audit",
+      name: "Free Audit & AI Analysis",
       description: "For individuals to organize personal projects and life.",
       price: { oneTime: 0, monthly: 0 },
       features: [
@@ -23,14 +23,15 @@ export default function PricingPage() {
         "Basic SEO recommendations",
         "Downloadable PDF report",
       ],
-      cta: "Sign up",
-      ctaLink: "/website-analyzer",
+      cta: "Try Now",
+      ctaLink: "/tools",
       buttonVariant: "outline",
     },
     {
       name: "Website Redesign",
       description: "For small teams and professionals to work together.",
-      price: { oneTime: 1499, monthly: null },
+      price: { oneTime: "Custom", monthly: null },
+      customPricing: true,
       features: [
         "Everything in Free Audit",
         "Custom website redesign (up to 5 pages)",
@@ -41,7 +42,7 @@ export default function PricingPage() {
         "30-day post-launch support",
         "Performance optimization",
       ],
-      cta: "Get started",
+      cta: "Get a Quote",
       ctaLink: "/contact-us",
       popular: true,
       buttonVariant: "primary",
@@ -150,9 +151,9 @@ export default function PricingPage() {
 
                   <div className="flex items-baseline gap-1 mb-4">
                     <span className="text-5xl font-bold text-black tracking-tight">
-                      ${displayPrice}
+                      {plan.customPricing ? displayPrice : `$${displayPrice}`}
                     </span>
-                    {plan.price.monthly !== null && billingCycle === "monthly" && (
+                    {!plan.customPricing && plan.price.monthly !== null && billingCycle === "monthly" && (
                       <span className="text-gray-500 font-medium ml-1">/month</span>
                     )}
                   </div>

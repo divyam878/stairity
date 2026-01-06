@@ -3,12 +3,14 @@
 import { useEffect, useRef } from 'react';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Link from "next/link";
+import { useCTAModal } from '../../../components/providers/CTAProvider';
 
 // Register ScrollTrigger plugin
 gsap.registerPlugin(ScrollTrigger);
 
 export default function HeroSection() {
+  const { openCTAModal } = useCTAModal();
+
   const statRefs = {
     websites: useRef(null),
     pages: useRef(null),
@@ -146,12 +148,12 @@ export default function HeroSection() {
 
           {/* Center button */}
           <div className="absolute left-1/2 top-1/8 md:top-1/2 -translate-x-1/2 -translate-y-1/2 z-10">
-            <Link
-              href="/contact-us"
+            <button
+              onClick={openCTAModal}
               className="inline-block bg-white text-black px-8 py-3 text-lg font-medium rounded-full shadow-[0_0_20px_rgba(0,0,0,0.1)] hover:shadow-[0_0_30px_rgba(0,0,0,0.15)] transition-shadow duration-200"
             >
               Get in Touch
-            </Link>
+            </button>
           </div>
 
           {/* Right side stats at bottom */}

@@ -3,12 +3,19 @@
 import { useState, useEffect } from "react";
 import { Gauge, Loader2, ExternalLink, AlertCircle, Zap, Users, CheckCircle, Search, Lightbulb } from "lucide-react";
 import Underline from "../../components/Underline";
+import { useAIUsage } from "../../hooks/useAIUsage";
+import { UsageCounter, UsageLimitBanner } from "../../components/ai/UsageComponents";
+
+const TOOL_NAME = "website-analyzer";
 
 export default function WebsiteAnalyzerPage() {
   const [url, setUrl] = useState('');
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [result, setResult] = useState(null);
   const [error, setError] = useState('');
+
+  // Usage tracking
+  const { allowed, remaining, used, loading, incrementUsage, isSignedIn } = useAIUsage(TOOL_NAME);
 
   // Scroll to top on page load
   useEffect(() => {
@@ -17,11 +24,26 @@ export default function WebsiteAnalyzerPage() {
 
   const handleAnalyze = async (e) => {
     e.preventDefault();
+    
+    // Check usage limit
+    if (!allowed) {
+      setError("You've reached your free limit of 15 analyses. Please upgrade to continue.");
+      return;
+    }
+
     setIsAnalyzing(true);
     setError('');
     setResult(null);
 
     try {
+      // Increment usage before making the API call
+      const usageResult = await incrementUsage();
+      if (usageResult.limitReached) {
+        setError("You've reached your free limit of 15 analyses. Please upgrade to continue.");
+        setIsAnalyzing(false);
+        return;
+      }
+
       const response = await fetch('/api/analyze-website', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -87,6 +109,14 @@ export default function WebsiteAnalyzerPage() {
             Get detailed insights about your website&apos;s speed, SEO, and performance
           </p>
         </div>
+
+        {/* Usage Counter */}
+        {isSignedIn && !loading && (
+          <>
+            <UsageCounter remaining={remaining} used={used} />
+            <UsageLimitBanner remaining={remaining} used={used} />
+          </>
+        )}
 
         {/* Form */}
         <div className="bg-white rounded-3xl p-8 md:p-12 border-2 border-[#2B7FFF] shadow-lg mb-8">

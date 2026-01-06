@@ -1,6 +1,10 @@
+'use client';
+
 import React from 'react';
 import { CircleCheckBig, Mail, TrendingUp } from 'lucide-react';
 import Underline from '../../../components/Underline';
+import { useCTAModal } from '../../../components/providers/CTAProvider';
+
 // Color constants
 const LIGHT_PURPLE = '#F5F0FF';
 const DARK_PURPLE = '#4d3258';
@@ -14,13 +18,15 @@ const benefits = [
 ];
 
 const CTA = () => {
+  const { openCTAModal, openCalendlyModal } = useCTAModal();
+
   return (
     <div className="py-16 px-4 sm:px-6 lg:px-8 bg-[#FAFAFA]">
       <div className="max-w-7xl mx-auto">
         <div className="bg-[#b294b8] rounded-4xl overflow-hidden shadow-lg relative">
           {/* Background Doodle */}
-          <div className="absolute inset-0 bg-[url('/images/purple_service_doodle.svg')] bg-cover bg-center opacity-60"></div>
-          <div className="flex flex-col lg:flex-row">
+          <div className="absolute inset-0 bg-[url('/images/purple_service_doodle.svg')] bg-cover bg-center opacity-60 pointer-events-none"></div>
+          <div className="flex flex-col lg:flex-row relative z-10">
             {/* Left Section: Text Content */}
             <div className="p-10 lg:p-16 lg:w-1/2">
               <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
@@ -37,19 +43,30 @@ const CTA = () => {
               </p>
               <div className="relative flex items-center justify-center h-40 w-40">
                 {/* Email Button */}
-                <button className="absolute -left-2 -top-2 bg-white p-3 rounded-full shadow-lg hover:scale-110 hover:border hover:border-[#4d3258] transition-transform duration-200 z-10 cursor-pointer">
+                <button 
+                  onClick={openCTAModal}
+                  className="absolute -left-2 -top-2 bg-white p-3 rounded-full shadow-lg hover:scale-110 hover:border hover:border-[#4d3258] transition-transform duration-200 z-10 cursor-pointer"
+                >
                   <Mail/>
                 </button>
                 
                 {/* Main CTA Button - Circle with Arrow */}
-                <div className="w-28 h-28 rounded-full bg-[#4d3258] flex items-center justify-center hover:bg-opacity-90 hover:scale-155 hover:border hover:border-[white] transition-all duration-200 cursor-pointer">
+                <button 
+                  onClick={openCTAModal}
+                  className="w-28 h-28 rounded-full bg-[#4d3258] flex items-center justify-center hover:bg-opacity-90 hover:scale-155 hover:border hover:border-[white] transition-all duration-200 cursor-pointer"
+                >
                   <TrendingUp className="w-10 h-10 text-white" />
-                </div>
+                </button>
                 
                 {/* WhatsApp Button */}
-                <button className="absolute -right-2 -bottom-2 bg-white p-3 rounded-full shadow-lg hover:scale-110 hover:border hover:border-[#4d3258] transition-transform duration-200 z-10 cursor-pointer">
+                <a 
+                  href="https://wa.me/918233120760" 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="absolute -right-2 -bottom-2 bg-white p-3 rounded-full shadow-lg hover:scale-110 hover:border hover:border-[#4d3258] transition-transform duration-200 z-10 cursor-pointer"
+                >
                   <img src="/images/whatsapp-icon-black.png" alt="WhatsApp" className="w-6 h-6" />
-                </button>
+                </a>
               </div>
             </div>
 
@@ -71,12 +88,13 @@ const CTA = () => {
                   </ul>
                 </div>
                 <div className="flex flex-col space-y-3 mt-6">
-                  <button className="w-full bg-white text-[#4d3258] py-3 px-6 rounded-full font-medium hover:bg-opacity-90 transition-all">
+                  <button 
+                    onClick={openCalendlyModal}
+                    className="w-full bg-transparent border-2 border-white text-white py-3 px-6 rounded-full font-medium hover:bg-white hover:text-[#4d3258] transition-all"
+                  >
                     BOOK A CALL
                   </button>
-                  <button className="w-full bg-transparent border-2 border-white text-white py-3 px-6 rounded-full font-medium hover:bg-white hover:bg-opacity-10 transition-all">
-                    REQUEST A QUOTE
-                  </button>
+                 
                 </div>
               </div>
             </div>

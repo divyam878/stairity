@@ -6,7 +6,7 @@ export default function SocialBar() {
   const socials = [
     {
       name: 'Instagram',
-      href: 'https://instagram.com/Webestrix',
+      href: 'https://www.instagram.com/webestrix?igsh=ZTJncmEwOXY3aHhm&utm_source=qr',
       icon: (
         <svg className="w-6 h-6 sm:w-8 sm:h-8" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
           <rect x="2" y="2" width="20" height="20" rx="5" />

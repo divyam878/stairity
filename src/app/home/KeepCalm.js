@@ -1,6 +1,12 @@
+"use client";
+
 import Image from "next/image";
 import Underline from "../../components/Underline";
+import { useCTAModal } from "../../components/providers/CTAProvider";
+
 export default function KeepCalm() {
+  const { openCTAModal } = useCTAModal();
+
   return (
     <section className="relative w-full min-h-screen flex items-center justify-center bg-[#FAFAFA] overflow-hidden px-6 md:px-12">
       {/* Optional Pattern Background */}
@@ -26,13 +32,14 @@ export default function KeepCalm() {
             </span>
           </h1>
           <p className="text-lg text-gray-700 font-medium">
-            At Webestrix, we don’t just analyze — we elevate. From{" "}
+            At Webestrix, we don't just analyze — we elevate. From{" "}
             <strong>optimization</strong> to <strong>design</strong>, our{" "}
             <strong>full-stack web services</strong> help your brand scale like
             never before.
           </p>
           <div className="mt-8">
             <button 
+              onClick={openCTAModal}
               className="relative bg-black text-white text-2xl font-light px-8 py-3 rounded-full shadow-lg transition-all duration-300 hover:scale-105 hover:shadow-xl transform hover:-translate-y-0.5"
               style={{
                 transform: 'translateZ(0)',

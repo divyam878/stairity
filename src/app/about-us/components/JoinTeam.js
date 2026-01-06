@@ -2,8 +2,11 @@
 
 import Image from 'next/image';
 import Underline from "../../../components/Underline";
+import { useCTAModal } from '../../../components/providers/CTAProvider';
 
 const JoinTeam = () => {
+  const { openCareerModal } = useCTAModal();
+
   return (
     <section className="w-full min-h-[70vh] flex items-center justify-center bg-[#FAFAFA] py-12">
       <div className="container mx-auto flex flex-col md:flex-row items-center justify-center gap-12 px-4">
@@ -38,6 +41,7 @@ const JoinTeam = () => {
             We&apos;re always on the lookout for creative minds! If you&apos;re passionate about digital design and growth, drop us a line.
           </p>
           <button
+            onClick={openCareerModal}
             className="relative px-12 py-4 rounded-full bg-white text-black text-2xl font-medium shadow-lg transition border-2 border-gray-300 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-yellow-400"
             tabIndex={0}
             aria-label="Join Us"

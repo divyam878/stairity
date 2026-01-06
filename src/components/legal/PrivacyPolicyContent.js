@@ -61,7 +61,7 @@ const PrivacyPolicyContent = () => {
       <h3 className="text-lg font-semibold text-gray-900 mt-8 mb-4">Contact Us</h3>
       <p className="mb-6">
         If you have any questions about this Privacy Policy or our privacy practices, please contact 
-        us at hello@webestrix.com.
+        us at webestrix@gmail.com.
       </p>
     </div>
   );

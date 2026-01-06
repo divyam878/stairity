@@ -11,15 +11,6 @@ export const metadata = {
 export default function ContactUs() {
   return (
     <main className="min-h-screen bg-[#FAFAFA] relative">
-      {/* Dotted background pattern like a drawing canvas */}
-      <div 
-        className="fixed inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: 'radial-gradient(#9ca3af 1.5px, transparent 1.5px)',
-          backgroundSize: '24px 24px',
-          opacity: 0.7
-        }}
-      />
       <div className="relative z-10">
         <ContactHero />
         <SocialBar />

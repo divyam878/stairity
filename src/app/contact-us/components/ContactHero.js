@@ -7,14 +7,6 @@ import Underline from '../../../components/Underline';
 export default function ContactHero() {
   return (
     <section className="relative bg-[#FAFAFA] pt-32 sm:pt-40 md:pt-56 pb-12 md:pb-16 overflow-hidden">
-      {/* Dotted background pattern */}
-      <div 
-        className="absolute inset-0 pointer-events-none z-0"
-        style={{
-          backgroundImage: 'radial-gradient(#e5e7eb 1.5px, transparent 1px)',
-          backgroundSize: '24px 24px'
-        }}
-      />
       
       {/* Vertical lines - hidden on mobile */}
       <div className="absolute top-0 bottom-0 left-[15%] w-px bg-gray-300 hidden md:block"></div>
@@ -84,23 +76,9 @@ export default function ContactHero() {
           
           {/* Right Content */}
           <div className="flex flex-row lg:flex-col items-center lg:items-end gap-4 md:gap-8 w-full lg:w-auto mt-6 lg:mt-0">
-            {/* Audit My Website Button */}
-            <Link 
-              href="/website-analyzer"
-              className="inline-flex items-center gap-2 sm:gap-4 bg-[#8150c1ff] text-white px-4 sm:px-6 py-3 sm:py-4 hover:bg-[#52c9d0] transition-colors group"
-            >
-              <div className="text-right">
-                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light">Audit My</div>
-                <div className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light">Website</div>
-              </div>
-              <span className="inline-block w-4 sm:w-6 md:w-8 h-px bg-white group-hover:w-8 md:group-hover:w-12 transition-all"></span>
-              <svg className="w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
             
             {/* Illustration */}
-            <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:h-56 lg:w-64 lg:h-64">
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:mt-36 md:h-56 lg:w-64 lg:h-64">
               <Image
                 src="/images/hands-phone-illustration.png"
                 alt="Hands holding phones illustration"

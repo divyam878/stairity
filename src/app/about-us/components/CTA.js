@@ -1,9 +1,11 @@
 'use client';
 
 import Image from 'next/image';
-import Link from 'next/link';
+import { useCTAModal } from '../../../components/providers/CTAProvider';
 
 export default function CTA() {
+  const { openCTAModal } = useCTAModal();
+
   return (
     <section className="relative bg-[#FAFAFA] py-24 overflow-hidden">
       <div className="container mx-auto px-4 relative z-10">
@@ -26,12 +28,12 @@ export default function CTA() {
                     <span className="absolute left-0 top-0 bottom-0 w-1 bg-blue-500 rounded-full"></span>
                     Let&apos;s build something amazing together. Get in touch with our team today.
                   </p>
-                  <Link 
-                    href="/contact" 
+                  <button 
+                    onClick={openCTAModal}
                     className="inline-block bg-gray-900 text-white hover:bg-gray-800 font-semibold py-3 px-8 rounded-full transition duration-300 transform hover:scale-105 border-2 border-transparent hover:border-gray-900"
                   >
                     Get Started
-                  </Link>
+                  </button>
                 </div>
                 
                 {/* Image */}

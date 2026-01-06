@@ -3,6 +3,7 @@ import { fetchBlogPost } from '../../../lib/sanity';
 import { PortableText } from '@portabletext/react';
 import Image from 'next/image';
 import Link from 'next/link';
+import LikeBlogButton from '../../../components/blog/LikeBlogButton';
 
 // Use standard AuthorCapsule from listing page
 const AuthorCapsule = ({ author, date }) => (
@@ -47,7 +48,7 @@ const CategoryPill = ({ category, variant = "blue" }) => {
 };
 
 export default async function BlogDetail({ params }) {
-  const { slug } = params;
+  const { slug } = await params;
   const post = await fetchBlogPost(slug);
 
   if (!post) {
@@ -72,13 +73,23 @@ export default async function BlogDetail({ params }) {
     : "26 Oct 2025";
   const category = post.categories?.[0]?.title || "Article";
 
+  // Blog data for like button
+  const blogData = {
+    slug: slug,
+    title: post.title,
+    mainImage: post.mainImage?.asset?.url || null,
+  };
+
   return (
     <article className="min-h-screen bg-white">
       {/* Navigation / Header Area */}
       <div className="max-w-7xl mx-auto px-4 pt-32 md:pt-48 pb-12">
-        <Link href="/blogs" className="inline-block text-sm font-bold uppercase tracking-widest mb-8 md:mb-12 hover:underline">
-          ← Back to Blogs
-        </Link>
+        <div className="flex items-center justify-between mb-8 md:mb-12">
+          <Link href="/blogs" className="inline-block text-sm font-bold uppercase tracking-widest hover:underline">
+            ← Back to Blogs
+          </Link>
+          <LikeBlogButton blog={blogData} />
+        </div>
         
         {/* Magazine Header */}
         <div className="flex flex-col items-center text-center">

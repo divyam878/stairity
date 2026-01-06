@@ -1,5 +1,8 @@
+"use client";
+
 import React from "react";
 import Underline from "../../../components/Underline";
+import { useCTAModal } from "../../../components/providers/CTAProvider";
 // Embedded SVG component for the arrow
 const ArrowIcon = () => (
   <svg
@@ -19,6 +22,8 @@ const ArrowIcon = () => (
 );
 
 const HeroSection = () => {
+  const { openCTAModal } = useCTAModal();
+
   return (
     // Section Container
     // I added py-24 to give the section vertical padding
@@ -54,6 +59,7 @@ const HeroSection = () => {
 
           {/* CTA Button */}
           <button
+            onClick={openCTAModal}
             className="group inline-flex items-center rounded-full bg-[#1a1a1a] px-7 py-4 text-base font-bold text-white transition-all duration-300 ease-in-out hover:bg-[#333] hover:-translate-y-0.5"
             aria-label="Let's Build Your Brand Together"
           >

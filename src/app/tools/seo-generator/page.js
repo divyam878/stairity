@@ -3,6 +3,10 @@
 import { useState, useEffect } from "react";
 import { Search, Copy, Check, Sparkles, Loader2 } from "lucide-react";
 import Underline from "../../../components/Underline";
+import { useAIUsage } from "../../../hooks/useAIUsage";
+import { UsageCounter, UsageLimitBanner } from "../../../components/ai/UsageComponents";
+
+const TOOL_NAME = "seo-generator";
 
 export default function SEOGeneratorPage() {
   const [formData, setFormData] = useState({
@@ -16,6 +20,9 @@ export default function SEOGeneratorPage() {
   const [error, setError] = useState('');
   const [copiedField, setCopiedField] = useState('');
 
+  // Usage tracking
+  const { allowed, remaining, used, loading, incrementUsage, isSignedIn } = useAIUsage(TOOL_NAME);
+
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -23,11 +30,26 @@ export default function SEOGeneratorPage() {
 
   const handleGenerate = async (e) => {
     e.preventDefault();
+    
+    // Check usage limit
+    if (!allowed) {
+      setError("You've reached your free limit of 15 prompts. Please upgrade to continue.");
+      return;
+    }
+
     setIsGenerating(true);
     setError('');
     setResult(null);
 
     try {
+      // Increment usage before making the API call
+      const usageResult = await incrementUsage();
+      if (usageResult.limitReached) {
+        setError("You've reached your free limit of 15 prompts. Please upgrade to continue.");
+        setIsGenerating(false);
+        return;
+      }
+
       const response = await fetch('/api/ai/generate-seo', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -87,6 +109,14 @@ export default function SEOGeneratorPage() {
             Create perfect meta tags, descriptions, and keywords for better search rankings
           </p>
         </div>
+
+        {/* Usage Counter */}
+        {isSignedIn && !loading && (
+          <>
+            <UsageCounter remaining={remaining} used={used} />
+            <UsageLimitBanner remaining={remaining} used={used} />
+          </>
+        )}
 
         <div className="grid lg:grid-cols-2 gap-8">
           
@@ -156,13 +186,17 @@ export default function SEOGeneratorPage() {
 
               <button
                 type="submit"
-                disabled={isGenerating}
+                disabled={isGenerating || !allowed}
                 className="w-full py-4 px-8 bg-[#DC2626] text-white rounded-full font-bold shadow-xl hover:scale-105 transition-all disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100 flex items-center justify-center gap-2"
               >
                 {isGenerating ? (
                   <>
                     <Loader2 className="w-5 h-5 animate-spin" />
                     Generating...
+                  </>
+                ) : !allowed ? (
+                  <>
+                    Limit Reached
                   </>
                 ) : (
                   <>
@@ -274,7 +308,7 @@ export default function SEOGeneratorPage() {
         <div className="mt-8 bg-[#DC2626] rounded-3xl p-8 text-center text-white border-2 border-[#b91c1c] shadow-lg">
           <h2 className="text-2xl font-bold mb-3">Need more SEO generations?</h2>
           <p className="text-red-100 mb-6">
-            Free tier: 10 SEO generations per month
+            Free tier: 15 SEO generations per user
           </p>
           <a
             href="/pricing"

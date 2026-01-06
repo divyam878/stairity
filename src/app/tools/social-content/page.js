@@ -3,6 +3,10 @@
 import { useState, useEffect } from "react";
 import { Instagram, Copy, Check, Sparkles, Loader2 } from "lucide-react";
 import Underline from "../../../components/Underline";
+import { useAIUsage } from "../../../hooks/useAIUsage";
+import { UsageCounter, UsageLimitBanner } from "../../../components/ai/UsageComponents";
+
+const TOOL_NAME = "social-content";
 
 const PLATFORMS = [
   { id: 'instagram', name: 'Instagram', icon: '📸', maxLength: 2200 },
@@ -33,6 +37,9 @@ export default function SocialContentPage() {
   const [error, setError] = useState('');
   const [copied, setCopied] = useState(false);
 
+  // Usage tracking
+  const { allowed, remaining, used, loading, incrementUsage, isSignedIn } = useAIUsage(TOOL_NAME);
+
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,11 +47,26 @@ export default function SocialContentPage() {
 
   const handleGenerate = async (e) => {
     e.preventDefault();
+    
+    // Check usage limit
+    if (!allowed) {
+      setError("You've reached your free limit of 15 prompts. Please upgrade to continue.");
+      return;
+    }
+
     setIsGenerating(true);
     setError('');
     setResult(null);
 
     try {
+      // Increment usage before making the API call
+      const usageResult = await incrementUsage();
+      if (usageResult.limitReached) {
+        setError("You've reached your free limit of 15 prompts. Please upgrade to continue.");
+        setIsGenerating(false);
+        return;
+      }
+
       const response = await fetch('/api/ai/generate-social', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -106,6 +128,14 @@ export default function SocialContentPage() {
             Generate perfect captions and posts for Instagram, TikTok, YouTube, and more
           </p>
         </div>
+
+        {/* Usage Counter */}
+        {isSignedIn && !loading && (
+          <>
+            <UsageCounter remaining={remaining} used={used} />
+            <UsageLimitBanner remaining={remaining} used={used} />
+          </>
+        )}
 
         <div className="grid lg:grid-cols-2 gap-8">
           

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState, useEffect, useRef } from "react";
+import { useCTAModal } from "../../../components/providers/CTAProvider";
 // Removed: import SplitText from "./SplitText";
 
 // --- 💡 NEW: WordSplitter Component for Native Animation (Now fully self-contained) ---
@@ -86,6 +87,7 @@ const interpolateColor = (scrollProgress) => {
 };
 
 const HeroSection = () => {
+  const { openCareerModal } = useCTAModal();
   const [circleColor, setCircleColor] = useState(interpolateColor(0));
   const [rotationAngle, setRotationAngle] = useState(0);
   const heroRef = useRef(null);
@@ -202,8 +204,8 @@ const HeroSection = () => {
           </div>
 
           {/* GET IN TOUCH Button */}
-          <a
-            href="#contact"
+          <button
+            onClick={openCareerModal}
             className="mt-16 md:mt-20 relative group flex items-center justify-center w-48 h-12 md:w-56 md:h-14 rounded-full bg-[#1800ad] hover:bg-[#13497a] transition-colors duration-300 z-10"
           >
             <span className="text-white font-medium text-sm md:text-base tracking-wider">
@@ -222,7 +224,7 @@ const HeroSection = () => {
                 d="M14 5l7 7m0 0l-7 7m7-7H3"
               />
             </svg>
-          </a>
+          </button>
         </div>
       </div>
 

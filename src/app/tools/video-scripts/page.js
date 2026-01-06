@@ -3,6 +3,10 @@
 import { useState, useEffect } from "react";
 import { Video, Copy, Check, Sparkles, Loader2, Clock, RefreshCw } from "lucide-react";
 import Underline from "../../../components/Underline";
+import { useAIUsage } from "../../../hooks/useAIUsage";
+import { UsageCounter, UsageLimitBanner } from "../../../components/ai/UsageComponents";
+
+const TOOL_NAME = "video-scripts";
 
 const VIDEO_TYPES = [
   { id: 'reel', name: 'Instagram Reel', duration: '15-30s', icon: '📸' },
@@ -33,6 +37,9 @@ export default function VideoScriptsPage() {
   const [copied, setCopied] = useState(false);
   const [refinementFeedback, setRefinementFeedback] = useState('');
 
+  // Usage tracking
+  const { allowed, remaining, used, loading, incrementUsage, isSignedIn } = useAIUsage(TOOL_NAME);
+
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -40,11 +47,26 @@ export default function VideoScriptsPage() {
 
   const handleGenerate = async (e, isRefinement = false) => {
     if (e) e.preventDefault();
+    
+    // Check usage limit
+    if (!allowed) {
+      setError("You've reached your free limit of 15 prompts. Please upgrade to continue.");
+      return;
+    }
+
     setIsGenerating(true);
     setError('');
     if (!isRefinement) setResult(null);
 
     try {
+      // Increment usage before making the API call
+      const usageResult = await incrementUsage();
+      if (usageResult.limitReached) {
+        setError("You've reached your free limit of 15 prompts. Please upgrade to continue.");
+        setIsGenerating(false);
+        return;
+      }
+
       const payload = isRefinement 
         ? { ...formData, refinement: refinementFeedback, previousScript: result.script }
         : formData;
@@ -111,6 +133,14 @@ export default function VideoScriptsPage() {
             Create engaging scripts for reels, shorts, and video content in seconds
           </p>
         </div>
+
+        {/* Usage Counter */}
+        {isSignedIn && !loading && (
+          <>
+            <UsageCounter remaining={remaining} used={used} />
+            <UsageLimitBanner remaining={remaining} used={used} />
+          </>
+        )}
 
         <div className="grid lg:grid-cols-2 gap-8">
           

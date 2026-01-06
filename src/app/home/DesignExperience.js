@@ -3,6 +3,7 @@
 import React from "react";
 import Image from "next/image";
 import Underline from "../../components/Underline";
+import { useCTAModal } from "../../components/providers/CTAProvider";
 // Import SVG images
 const ComplexEmoji = () => (
   <div className="w-24 h-24 relative">
@@ -56,6 +57,8 @@ const ProblemCard = ({ emoji, title, className = "" }) => (
 );
 
 export default function DesignExperience() {
+  const { openCTAModal } = useCTAModal();
+
   return (
     <section className="bg-[#FAFAFA] py-16 px-4 md:px-12 lg:px-20">
       <div className="max-w-full mx-auto">
@@ -112,12 +115,15 @@ export default function DesignExperience() {
             </div>
             
             <div className="relative flex items-center lg:pl-12  space-x-4">
-              <div className="bg-black text-white p-4 lg:pl-6 rounded-full flex items-center justify-center h-48 w-48">
+              <button 
+                onClick={openCTAModal}
+                className="bg-black text-white p-4 lg:pl-6 rounded-full flex items-center justify-center h-48 w-48 hover:scale-105 transition-transform cursor-pointer"
+              >
                 <div className="text-[#FEB301]">
                   <ArrowUp />
                 </div>
                 <span className="text-xl font-medium">ELEVATE YOUR PRESENCE</span>
-              </div>
+              </button>
             </div>
           </div>
 
