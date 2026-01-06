@@ -43,12 +43,12 @@ const HeroSection = () => {
         {/* Left Side: Text Content */}
         <div className="z-10 flex-[1.2] text-center lg:order-1 lg:max-w-2xl lg:pr-16 lg:text-left pt-12">
           <h1 className="mb-6 font-normal leading-tight text-[#2d2d2d]">
-            <span className="block text-2xl md:text-5xl text-gray-500">
-              MAKE THE INTERNET
+            <span className="block text-2xl md:text-5xl font-light text-gray-500">
+              Make the Internet
             </span>
 
-            <span className="block text-5xl sm:text-5xl md:text-7xl font-medium tracking-tight text-gray-900 mt-2 md:pb-12">
-              REMEMBER <span className="font-semibold italic">YOUR NAME</span>
+            <span className="block text-5xl sm:text-5xl md:text-6xl font-medium tracking-tight text-[#3c0078] mt-2 md:pb-12 font-hello">
+              Remember <span className="font-semibold italic">Your Name</span>
             </span>
           </h1>
           <p className="mx-auto mb-8 pt-6 max-w-full text-xl leading-relaxed text-[#555] lg:mx-0">

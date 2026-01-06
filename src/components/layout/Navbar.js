@@ -65,13 +65,13 @@ const Navbar = () => {
             >
               <div className="relative">
                 <Image 
-                  src="/images/contactCircleBlack.svg" 
+                  src="/images/doodle-smudge.svg" 
                   alt="Contact Us" 
-                  width={120} 
-                  height={60} 
+                  width={130} 
+                  height={80} 
                   className="transition-opacity group-hover:opacity-80"
                 />
-                <span className="absolute text-xl inset-0 flex items-center justify-center text-black font-medium  font-hello group-hover:text-gray-700 mt-2">
+                <span className="absolute text-md inset-0 flex items-center justify-center text-black font-bold  font-hello group-hover:text-gray-700 ">
                   Contact Us
                 </span>
               </div>
