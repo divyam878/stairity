@@ -134,14 +134,6 @@ export default function VideoScriptsPage() {
           </p>
         </div>
 
-        {/* Usage Counter */}
-        {isSignedIn && !loading && (
-          <>
-            <UsageCounter remaining={remaining} used={used} />
-            <UsageLimitBanner remaining={remaining} used={used} />
-          </>
-        )}
-
         <div className="grid lg:grid-cols-2 gap-8">
           
           {/* Form */}
@@ -388,6 +380,14 @@ export default function VideoScriptsPage() {
           </div>
 
         </div>
+
+        {/* Usage Indicator Moved to Bottom */}
+        {isSignedIn && !loading && (
+          <div className="mt-12">
+            <UsageCounter remaining={remaining} used={used} />
+            <UsageLimitBanner remaining={remaining} used={used} />
+          </div>
+        )}
 
         {/* CTA */}
         <div className="mt-8 bg-[#16A34A] rounded-3xl p-8 text-center text-white border-2 border-[#15803D] shadow-lg">

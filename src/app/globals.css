@@ -290,3 +290,31 @@ body {
         @apply bg-background text-foreground;
     }
 }
+
+/* Custom Slim Scrollbar */
+* {
+    scrollbar-width: thin;
+    scrollbar-color: #c4c4c4 transparent;
+}
+
+/* Webkit browsers (Chrome, Safari, Edge) */
+::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+    border-radius: 10px;
+    margin: 12px 0;
+    /* Offset from top/bottom for rounded containers */
+}
+
+::-webkit-scrollbar-thumb {
+    background: #c4c4c4;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #a0a0a0;
+}

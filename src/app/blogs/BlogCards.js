@@ -4,62 +4,53 @@ import Link from "next/link";
 import Image from "next/image";
 import LikeHeartButton from "../../components/blog/LikeHeartButton";
 
-// Author Capsule Component
-const AuthorCapsule = ({ author, date }) => (
-  <div className="flex items-center bg-white border border-black rounded-full py-1 px-3 sm:py-2 sm:px-4 w-fit">
-    <div className="w-8 h-8 mr-3 overflow-hidden shrink-0">
+// Author Info Component with image
+const AuthorInfo = ({ author, authorImage, date }) => (
+  <div className="flex items-center gap-2">
+    <div className="w-6 h-6 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
       <Image
-        src="/images/user-image.png"
+        src={authorImage || "/images/user-image.png"}
         alt={author}
-        width={32}
-        height={32}
+        width={24}
+        height={24}
         className="object-cover w-full h-full"
       />
     </div>
-    <div className="text-black flex flex-col justify-center leading-none">
-      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-[2px]">
-        {author}
-      </span>
-      <span className="text-[8px] sm:text-[10px] text-gray-500 uppercase tracking-widest">
-        {date}
-      </span>
-    </div>
+    <span className="text-sm text-gray-600">
+      {author} • {date}
+    </span>
   </div>
 );
 
-// Category Pill Component
-const CategoryPill = ({ category, variant = "blue" }) => {
-  const bgColors = {
-    blue: "bg-[#4AAEFF]",
-    tea: "bg-[#0F5A56]",
-  };
-  const textColors = {
-    blue: "text-white",
-    tea: "text-white",
-  };
-
+// Category Tag with outline
+const CategoryTag = ({ title, color }) => {
+  const tagColor = color || "#4AAEFF";
   return (
     <span
-      className={`inline-block py-2 px-6 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-widest ${bgColors[variant]} ${textColors[variant]} w-fit`}
+      className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border"
+      style={{ 
+        color: tagColor, 
+        borderColor: tagColor,
+        backgroundColor: "transparent"
+      }}
     >
-      {category}
+      {title}
     </span>
   );
 };
 
-// Featured Card Component
+// Featured Card - Large image left, content right
 export function FeaturedCard({ post }) {
-  const author = post.authorName || "Divyam Goyal";
+  const author = post.authorName || "Stairity Team";
+  const authorImage = post.authorImage || null;
   const date = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString("en-US", {
         day: "numeric",
         month: "short",
         year: "numeric",
       })
-    : "26 Oct 2025";
-  const category = post.categories?.[0]?.title || "UI/UX";
-  const excerpt = "The digital marketing landscape is experiencing one of its most transformative periods in recent history. What was once about simple banner ads or keyword optimization has now evolved into a dynamic ecosystem driven by data, artificial intelligence, and evolving consumer expectations. As consumer behavior continues to shift and platforms evolve, digital marketers are rethinking the way they engage with audiences. From short-form video to AI automation, today's trends are reshaping how brands communicate, sell, and build trust online. By embracing these changes and focusing on authentic storytelling, businesses can create deeper connections and drive sustainable growth in an increasingly competitive market.";
-
+    : "";
+  const category = post.categories?.[0];
   const blogData = {
     slug: post.slug.current,
     title: post.title,
@@ -67,65 +58,115 @@ export function FeaturedCard({ post }) {
   };
 
   return (
-    <div className="block group mb-16 sm:mb-24">
-      {/* Image Area */}
-      <div className="relative w-full h-[300px] md:h-[500px] lg:h-[600px] mb-6 md:mb-8 overflow-hidden">
-        <LikeHeartButton blog={blogData} />
-        <Link href={`/blogs/${post.slug.current}`}>
+    <Link href={`/blogs/${post.slug.current}`} className="block group">
+      <div className="flex flex-col md:flex-row bg-white rounded-2xl overflow-hidden border border-transparent hover:border-gray-300 transition-all">
+        {/* Image */}
+        <div className="relative w-full md:w-1/2 aspect-[4/3] overflow-hidden bg-gray-100">
+          <LikeHeartButton blog={blogData} />
           {post.mainImage?.asset?.url ? (
             <Image
               src={post.mainImage.asset.url}
               alt={post.title || "Featured blog post"}
               fill
-              className="object-cover transition-transform duration-700 ease-in-out group-hover:scale-105"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
             <div className="w-full h-full bg-gray-200 flex items-center justify-center">
-              <span className="text-gray-500">No image</span>
+              <span className="text-gray-400">No image</span>
             </div>
           )}
-        </Link>
-      </div>
+        </div>
 
-      {/* Content Area */}
-      <Link href={`/blogs/${post.slug.current}`}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-8">
-          <h2 className="text-3xl md:text-6xl lg:text-7xl font-bold text-black mb-6 md:mb-8 leading-tight group-hover:opacity-80 transition-opacity">
+        {/* Content */}
+        <div className="w-full md:w-1/2 flex flex-col justify-center p-6 md:p-8">
+          {category && (
+            <div className="mb-3">
+              <CategoryTag title={category.title} color={category.color} />
+            </div>
+          )}
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-black mb-4 leading-tight group-hover:text-gray-700 transition-colors">
             {post.title}
           </h2>
-
-          <div className="text-base md:text-lg text-gray-800 leading-relaxed mb-10 md:columns-2 gap-12 text-justify">
-            <p>{excerpt}</p>
-          </div>
-
-          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-t border-black pt-6 gap-6">
-            <div className="flex flex-wrap items-center gap-4">
-              <AuthorCapsule author={author} date={date.toUpperCase()} />
-              <CategoryPill category={category} variant="blue" />
-            </div>
-            <span className="text-lg font-bold text-black uppercase tracking-widest group-hover:underline underline-offset-4">
-              View More
-            </span>
-          </div>
+          <AuthorInfo author={author} authorImage={authorImage} date={date} />
         </div>
-      </Link>
-    </div>
+      </div>
+    </Link>
   );
 }
 
-// Standard Card Component
-export function StandardCard({ post }) {
-  const author = post.authorName || "Divyam Goyal";
+// Small Card - Horizontal layout for row below featured
+export function SmallCard({ post }) {
+  const author = post.authorName || "Stairity Team";
+  const authorImage = post.authorImage || null;
   const date = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString("en-US", {
         day: "numeric",
         month: "short",
         year: "numeric",
       })
-    : "26 Oct 2025";
-  const category = post.categories?.[0]?.title || "Marketing";
-  const excerpt = post.excerpt || "In today's digital landscape, your website is often your brand's first handshake with the world...";
+    : "";
+  const category = post.categories?.[0];
+  const excerpt = post.excerpt || post.title;
 
+  return (
+    <Link href={`/blogs/${post.slug.current}`} className="block group">
+      <div className="flex bg-white rounded-xl overflow-hidden border border-transparent hover:border-gray-300 transition-all">
+        {/* Thumbnail */}
+        <div className="relative w-28 h-28 md:w-32 md:h-32 flex-shrink-0 overflow-hidden bg-gray-100">
+          {post.mainImage?.asset?.url ? (
+            <Image
+              src={post.mainImage.asset.url}
+              alt={post.title || "Blog post"}
+              fill
+              className="object-cover transition-transform duration-300 group-hover:scale-105"
+            />
+          ) : (
+            <div className="w-full h-full bg-gray-200" />
+          )}
+        </div>
+
+        {/* Content */}
+        <div className="flex flex-col justify-center min-w-0 p-3">
+          {category && (
+            <div className="mb-1">
+              <CategoryTag title={category.title} color={category.color} />
+            </div>
+          )}
+          <h3 className="text-sm font-bold text-black mb-1 leading-snug line-clamp-2 group-hover:text-gray-700 transition-colors">
+            {excerpt.length > 60 ? excerpt.substring(0, 60) + "..." : excerpt}
+          </h3>
+          <div className="flex items-center gap-2 mt-1">
+            <div className="w-5 h-5 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
+              <Image
+                src={authorImage || "/images/user-image.png"}
+                alt={author}
+                width={20}
+                height={20}
+                className="object-cover w-full h-full"
+              />
+            </div>
+            <span className="text-xs text-gray-500">
+              {author} • {date}
+            </span>
+          </div>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+// Standard Grid Card - For main grid section
+export function StandardCard({ post }) {
+  const author = post.authorName || "Stairity Team";
+  const authorImage = post.authorImage || null;
+  const date = post.publishedAt
+    ? new Date(post.publishedAt).toLocaleDateString("en-US", {
+        day: "numeric",
+        month: "short",
+        year: "numeric",
+      })
+    : "";
+  const category = post.categories?.[0];
   const blogData = {
     slug: post.slug.current,
     title: post.title,
@@ -133,45 +174,69 @@ export function StandardCard({ post }) {
   };
 
   return (
-    <div className="block group flex flex-col h-full">
-      {/* Image Area */}
-      <div className="relative w-full aspect-[4/3] mb-6 overflow-hidden bg-gray-100">
-        <LikeHeartButton blog={blogData} />
-        <Link href={`/blogs/${post.slug.current}`} className="block w-full h-full">
+    <Link href={`/blogs/${post.slug.current}`} className="block group">
+      <div className="bg-[#fafafa] rounded-2xl overflow-hidden border border-transparent hover:border-gray-300 transition-all">
+        {/* Image */}
+        <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-200">
+          <LikeHeartButton blog={blogData} />
           {post.mainImage?.asset?.url ? (
             <Image
               src={post.mainImage.asset.url}
               alt={post.title || "Blog post"}
               fill
-              className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
             />
           ) : (
-            <div className="w-full h-full flex items-center justify-center text-gray-400">
-              No Image
+            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+              <span className="text-gray-400">No image</span>
             </div>
           )}
-        </Link>
-      </div>
-
-      {/* Content */}
-      <Link href={`/blogs/${post.slug.current}`} className="flex flex-col grow">
-        <h3 className="text-2xl md:text-3xl font-bold text-black mb-4 leading-tight group-hover:opacity-80 transition-opacity">
-          {post.title}
-        </h3>
-        <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6 line-clamp-3">
-          {excerpt}
-        </p>
-
-        <div className="mt-auto pt-6 border-t border-black flex flex-wrap items-center justify-between gap-4">
-          <div className="flex items-center gap-3">
-            <AuthorCapsule author={author} date={date.toUpperCase()} />
-            <CategoryPill category={category} variant="tea" />
-          </div>
-          <span className="text-sm font-bold text-black uppercase tracking-widest group-hover:underline underline-offset-4">
-            View More
-          </span>
         </div>
-      </Link>
+
+        {/* Content */}
+        <div className="p-5">
+          {category && (
+            <div className="mb-3">
+              <CategoryTag title={category.title} color={category.color} />
+            </div>
+          )}
+          <h3 className="text-lg md:text-xl font-bold text-black mb-3 leading-tight group-hover:text-gray-700 transition-colors line-clamp-2">
+            {post.title}
+          </h3>
+          <AuthorInfo author={author} authorImage={authorImage} date={date} />
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+// Category Filter Pills
+export function CategoryFilters({ categories, activeCategory, onCategoryChange }) {
+  return (
+    <div className="flex flex-wrap items-center justify-center gap-3 mb-12">
+      <button
+        onClick={() => onCategoryChange(null)}
+        className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+          activeCategory === null
+            ? "bg-black text-white"
+            : "bg-white text-gray-700 border border-gray-300 hover:border-gray-400"
+        }`}
+      >
+        All Categories
+      </button>
+      {categories.map((cat) => (
+        <button
+          key={cat._id}
+          onClick={() => onCategoryChange(cat.slug.current)}
+          className={`px-5 py-2 rounded-full text-sm font-medium transition-all ${
+            activeCategory === cat.slug.current
+              ? "bg-black text-white"
+              : "bg-white text-gray-700 border border-gray-300 hover:border-gray-400"
+          }`}
+        >
+          {cat.title}
+        </button>
+      ))}
     </div>
   );
 }

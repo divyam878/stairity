@@ -3,12 +3,14 @@ import React from "react";
 
 const BlogHero = () => {
   return (
-    <section className="pt-42 md:pt-42 pb-12 px-4 sm:px-8 bg-[#FAFAFA] font-inter text-center">
-      <div className="max-w-7xl mx-auto">
-        <h1 className="text-7xl md:text-8xl lg:text-[8.5rem] font-semibold tracking-tight text-regular mb-8 uppercase font-poppins">
-          BLOGS & ARTICLES
+    <section className="pt-32 md:pt-40 pb-8 px-4 sm:px-8 bg-white text-center">
+      <div className="max-w-6xl mx-auto">
+        <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-black mb-4">
+          Blog & Articles
         </h1>
-        <div className="w-full h-px bg-black mb-12"></div>
+        <p className="text-gray-600 text-lg max-w-2xl mx-auto">
+          Insights, tips, and stories from our team
+        </p>
       </div>
     </section>
   );

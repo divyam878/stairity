@@ -20,6 +20,20 @@ export default {
       validation: Rule => Rule.required()
     },
     {
+      name: 'author',
+      title: 'Author',
+      type: 'reference',
+      to: [{ type: 'author' }],
+      description: 'Select the author of this blog post'
+    },
+    {
+      name: 'categories',
+      title: 'Categories',
+      type: 'array',
+      of: [{ type: 'reference', to: [{ type: 'category' }] }],
+      description: 'Select one or more categories for this blog post'
+    },
+    {
       name: 'mainImage',
       title: 'Main image',
       type: 'image',
@@ -38,7 +52,7 @@ export default {
       name: 'body',
       title: 'Body',
       type: 'array',
-      of: [{type: 'block'}],
+      of: [{ type: 'block' }],
       description: 'The main content of the blog post'
     },
     {
@@ -51,16 +65,17 @@ export default {
   preview: {
     select: {
       title: 'title',
+      author: 'author.name',
       media: 'mainImage',
       publishedAt: 'publishedAt'
     },
     prepare(selection) {
-      const {title, media, publishedAt} = selection
+      const { title, author, media, publishedAt } = selection
       return {
         title: title,
-        subtitle: publishedAt ? new Date(publishedAt).toLocaleDateString() : 'Draft',
+        subtitle: author ? `By ${author}` : (publishedAt ? new Date(publishedAt).toLocaleDateString() : 'Draft'),
         media: media
       }
     }
   },
-} 
+}

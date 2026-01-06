@@ -129,14 +129,6 @@ export default function SocialContentPage() {
           </p>
         </div>
 
-        {/* Usage Counter */}
-        {isSignedIn && !loading && (
-          <>
-            <UsageCounter remaining={remaining} used={used} />
-            <UsageLimitBanner remaining={remaining} used={used} />
-          </>
-        )}
-
         <div className="grid lg:grid-cols-2 gap-8">
           
           {/* Form */}
@@ -343,6 +335,14 @@ export default function SocialContentPage() {
           </div>
 
         </div>
+
+        {/* Usage Indicator Moved to Bottom */}
+        {isSignedIn && !loading && (
+          <div className="mt-12">
+            <UsageCounter remaining={remaining} used={used} />
+            <UsageLimitBanner remaining={remaining} used={used} />
+          </div>
+        )}
 
         {/* CTA */}
         <div className="mt-8 bg-[#EAB308] rounded-3xl p-8 text-center text-white border-2 border-[#CA8A04] shadow-lg">

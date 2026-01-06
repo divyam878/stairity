@@ -70,27 +70,20 @@ export function UsageCounter({ remaining, used, limit = 15 }) {
   const percentage = (used / limit) * 100;
 
   return (
-    <div className="bg-white border border-gray-200 rounded-xl p-4 mb-6">
-      <div className="flex items-center justify-between mb-2">
-        <div className="flex items-center gap-2">
-          <Sparkles className="w-4 h-4 text-purple-500" />
-          <span className="text-sm font-medium text-gray-700">Free Prompts</span>
+    <div className="flex justify-center w-full mb-8">
+      <div className="inline-flex items-center gap-4 bg-white border-2 border-dashed border-gray-200 rounded-full px-6 py-3 min-w-[320px] md:min-w-[400px]">
+        <span className="text-base font-medium text-black whitespace-nowrap">Free Prompts</span>
+        
+        <div className="flex-1 h-1.5 bg-gray-100 rounded-full overflow-hidden">
+          <div
+            className="h-full bg-black rounded-full transition-all duration-500 ease-out"
+            style={{ width: `${Math.min(percentage, 100)}%` }}
+          />
         </div>
-        <span className="text-sm text-gray-500">
-          {remaining} of {limit} remaining
+        
+        <span className="text-base font-bold text-black whitespace-nowrap">
+          {used}/{limit}
         </span>
-      </div>
-      <div className="w-full bg-gray-100 rounded-full h-2">
-        <div
-          className={`h-2 rounded-full transition-all ${
-            percentage >= 100
-              ? "bg-red-500"
-              : percentage >= 80
-              ? "bg-amber-500"
-              : "bg-purple-500"
-          }`}
-          style={{ width: `${Math.min(percentage, 100)}%` }}
-        />
       </div>
     </div>
   );
