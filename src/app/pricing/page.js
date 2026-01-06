@@ -77,7 +77,7 @@ export default function PricingPage() {
             <span className="relative inline-block font-hello">
               Growth Plan
               <div
-                className="absolute -bottom-3 md:-bottom-4 left-1/2 -translate-x-1/2 leading-tight"
+                className="absolute -bottom-5 md:-bottom-4 left-1/2 -translate-x-1/2 leading-tight"
                 style={{ width: "100%" }}
               >
                 <Underline color="#a9e2f8" width="110%" height={30} thickness="3" />

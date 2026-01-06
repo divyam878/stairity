@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect, useRef } from "react";
 import { useCTAModal } from "../../../components/providers/CTAProvider";
+import Underline from "../../../components/Underline";
 // Removed: import SplitText from "./SplitText";
 
 // --- 💡 NEW: WordSplitter Component for Native Animation (Now fully self-contained) ---
@@ -172,8 +173,11 @@ const HeroSection = () => {
           <div className="mb-8">
             <h1 className="text-6xl md:text-8xl font-semibold text-black tracking-tight leading-tight -z-1">
               CAREERS AT{" "}
-              <span className="font-hello font-regular text-[#5170ff]">
+              <span className="relative inline-block font-hello font-regular text-[#1800ad]">
                 Webestrix
+                {/* <div className="absolute left-0 right-0 -bottom-2 h-10" style={{ transform: 'scaleY(0.5)' }}>
+                  <Underline color="#d8b6f9" width="100%" height="60" thickness="2" />
+                </div> */}
               </span>
             </h1>
             <p className="text-2xl md:text-3xl font-regular text-gray-900 mt-4">
@@ -184,7 +188,7 @@ const HeroSection = () => {
           {/* White Sphere with Logo and Moon */}
           <div
             className="relative w-40 h-40 md:w-52 md:h-52 bg-white rounded-full
-                                 shadow-lg mx-auto
+                                  mx-auto
                                  flex items-center justify-center"
           >
             {/* New: Moon image behind the logo */}
@@ -196,19 +200,18 @@ const HeroSection = () => {
                                    w-40 h-40 md:w-52 md:h-52 object-contain  z-[1]"
             /> */}
             <img
-              src="/images/webestrix-logo-short-4.svg"
+              src="/images/webestrix-logo-short-3.svg"
               alt="Webestrix Logo"
-              width={100}
-              height={100}
-              className="w-24 h-24 md:w-32 md:h-32 object-contain z-[2]" // Ensure logo is above moon
-              style={{ transform: `rotate(${rotationAngle}deg)` }}
+              width={150}
+              height={150}
+              className="w-28 h-28 md:w-40 md:h-40 object-contain z-[2]"
             />
           </div>
 
           {/* GET IN TOUCH Button */}
           <button
             onClick={openCareerModal}
-            className="mt-16 md:mt-20 relative group flex items-center justify-center w-48 h-12 md:w-56 md:h-14 rounded-full bg-[#1800ad] hover:bg-[#13497a] transition-colors duration-300 z-10"
+            className="mt-16 md:mt-20 relative group flex items-center justify-center w-48 h-12 md:w-56 md:h-14 rounded-full bg-[#1800ad] hover:bg-[#d8b6f9] transition-colors duration-300 z-10"
           >
             <span className="text-white font-medium text-sm md:text-base tracking-wider">
               GET IN TOUCH

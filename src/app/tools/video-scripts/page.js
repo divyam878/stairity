@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Video, Copy, Check, Sparkles, Loader2, Clock, RefreshCw } from "lucide-react";
+import { Video, Copy, Check, Sparkles, Loader2, Clock, RefreshCw, Instagram, Youtube, Music, Zap, BookOpen, Film, MessageCircle, Star, TrendingUp } from "lucide-react";
 import Underline from "../../../components/Underline";
 import { useAIUsage } from "../../../hooks/useAIUsage";
 import { UsageCounter, UsageLimitBanner } from "../../../components/ai/UsageComponents";
@@ -9,18 +9,18 @@ import { UsageCounter, UsageLimitBanner } from "../../../components/ai/UsageComp
 const TOOL_NAME = "video-scripts";
 
 const VIDEO_TYPES = [
-  { id: 'reel', name: 'Instagram Reel', duration: '15-30s', icon: '📸' },
-  { id: 'short', name: 'YouTube Short', duration: '15-60s', icon: '▶️' },
-  { id: 'tiktok', name: 'TikTok Video', duration: '15-60s', icon: '🎵' },
-  { id: 'story', name: 'Story/Snap', duration: '10-15s', icon: '⚡' },
+  { id: 'reel', name: 'Instagram Reel', duration: '15-30s', Icon: Instagram },
+  { id: 'short', name: 'YouTube Short', duration: '15-60s', Icon: Youtube },
+  { id: 'tiktok', name: 'TikTok Video', duration: '15-60s', Icon: Music },
+  { id: 'story', name: 'Story/Snap', duration: '10-15s', Icon: Zap },
 ];
 
 const STYLES = [
-  { id: 'tutorial', name: 'Tutorial/How-To', emoji: '📚' },
-  { id: 'behind-scenes', name: 'Behind the Scenes', emoji: '🎬' },
-  { id: 'testimonial', name: 'Testimonial', emoji: '💬' },
-  { id: 'product-showcase', name: 'Product Showcase', emoji: '✨' },
-  { id: 'trending', name: 'Trending/Viral', emoji: '🔥' },
+  { id: 'tutorial', name: 'Tutorial/How-To', Icon: BookOpen },
+  { id: 'behind-scenes', name: 'Behind the Scenes', Icon: Film },
+  { id: 'testimonial', name: 'Testimonial', Icon: MessageCircle },
+  { id: 'product-showcase', name: 'Product Showcase', Icon: Star },
+  { id: 'trending', name: 'Trending/Viral', Icon: TrendingUp },
 ];
 
 export default function VideoScriptsPage() {
@@ -173,7 +173,7 @@ export default function VideoScriptsPage() {
                           : 'bg-[#F6F6F6] text-black hover:shadow-md'
                       }`}
                     >
-                      <span className="text-2xl mb-1 block">{type.icon}</span>
+                      <type.Icon className="w-6 h-6 mb-1 mx-auto" />
                       <span className="text-sm block">{type.name}</span>
                       <span className="text-xs opacity-70 block mt-1">{type.duration}</span>
                     </button>
@@ -198,7 +198,10 @@ export default function VideoScriptsPage() {
                           : 'bg-[#F6F6F6] text-black hover:shadow-sm'
                       }`}
                     >
-                      {style.emoji} {style.name}
+                      <div className="flex flex-col items-center gap-2">
+                        <style.Icon className="w-6 h-6" />
+                        <span>{style.name}</span>
+                      </div>
                     </button>
                   ))}
                 </div>

@@ -57,7 +57,7 @@ export default function ToolsPage() {
             <span className="text-sm font-semibold text-black">AI-Powered Tools</span>
           </div>
           
-          <h1 className="text-6xl md:text-6xl font-regular text-black mb-4">
+          <h1 className="text-5xl md:text-6xl font-regular text-black mb-4">
             Free Tools to Grow
             <br />
             <span className="relative inline-block mt-2 font-hello pt-5">

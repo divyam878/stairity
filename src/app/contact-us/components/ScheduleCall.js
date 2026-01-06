@@ -39,7 +39,7 @@ export default function ScheduleCall({
               style={{ width: '100%' }}
             >
               <div className="md:hidden">
-                <Underline color="#0daeb0ff" width="100%" thickness="3" height="15" />
+                <Underline color="#8150c1ff" width="100%" thickness="3" height="15" />
               </div>
               <div className="hidden md:block">
                 <Underline color="#8150c1ff" width="100%" thickness="4" height="25" />
@@ -61,7 +61,7 @@ export default function ScheduleCall({
           </div>
           
           {/* Doodle arrow - hidden on small mobile */}
-          <div className="absolute -top-8 sm:-top-14 right-0 sm:-right-8 md:-right-16 lg:-right-24 opacity-70 transform rotate-[15deg] w-12 h-12 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 z-10 hidden sm:block">
+          <div className="absolute -top-8 sm:-top-14 right-0 sm:-right-8 md:-right-16 lg:-right-24 opacity-70 transform rotate-[15deg] w-12 h-12 sm:w-20 sm:h-20 md:w-28 md:h-28 lg:w-32 lg:h-32 z-10">
             <Image
               src="/images/teal-arrow-doodle.svg"
               alt="Schedule a call doodle"

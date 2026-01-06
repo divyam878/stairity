@@ -68,7 +68,7 @@ const Faq = () => {
                 Your Questions{" "}
                 <span className="relative text-[42px] inline-block font-hello font-normal">
                   Answered Here.
-                  <div className="absolute -bottom-3 md:-bottom-3 lg:-bottom-4 left-1/2 -translate-x-1/2 md:scale-x-[1.2] w-full">
+                  <div className="absolute -bottom-3 md:-bottom-3 lg:-bottom-4 left-[30%] md:left-1/2 -translate-x-1/2 scale-x-[0.5] md:scale-x-[1.2] w-[90%] md:w-full">
                     <Underline color="#649F66" width="100%" thickness="4" />
                   </div>
                 </span>

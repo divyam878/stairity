@@ -51,14 +51,14 @@ const Clients = () => {
              <span className="relative text-3xl md:text-5xl lg:text-5xl inline-block font-hello font-medium">
                 Trusted By
                 <div
-                  className="absolute -bottom-2 md:-bottom-2 lg:-bottom-3 left-1/2 -translate-x-1/2"
-                  style={{ width: "100%" }}
+                  className="absolute -bottom-3 md:-bottom-2 lg:-bottom-3 left-1/2 -translate-x-1/2"
+                  style={{ width: "100%", transform: "scaleY(0.5)" }}
                 >
                   <Underline color="#ED3001" width="100%" thickness="4" />
                 </div>
                 
               </span>
-              {" "}leading brands 
+              {" "}leading brands {" "}
           <br className='md:block hidden'/>
           and innovative startups
           </h1>

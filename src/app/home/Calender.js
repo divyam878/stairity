@@ -63,10 +63,10 @@ const Calender = ({
           <span className=" mt-8 relative inline-block text-4xl md:text-5xl lg:text-5xl font-medium font-hello text-black">
             Schedule
             <div
-              className="absolute -bottom-3 left-1/2 -translate-x-1/2 scale-x-[1.2] md:scale-x-[1.9]" // responsive scale
+              className="absolute -bottom-4 left-1/2 -translate-x-1/2 scale-x-[1.2] md:scale-x-[1.9]" // responsive scale
               style={{ width: "100%" }}
             >
-              <Underline color="#9333ea" width="100%" thickness="4" />
+              <Underline color="#9333ea" width="100%" thickness="3" />
             </div>{" "}
             a call
           </span>

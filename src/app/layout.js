@@ -6,7 +6,7 @@ import { ClerkProvider } from "@clerk/nextjs";
 import "./globals.css";
 import Navbar from "../components/layout/Navbar";
 import Footer from "../components/layout/Footer";
-import TawkToChat from "../components/chat/TawkToChat";
+import WhatsAppChat from "../components/chat/WhatsAppChat";
 import { CTAProvider } from "../components/providers/CTAProvider";
 
 const parkinsans = Parkinsans({
@@ -43,7 +43,7 @@ export default function RootLayout({ children }) {
             <Navbar />
             <main>{children}</main>
             <Footer />
-            <TawkToChat />
+            <WhatsAppChat />
           </CTAProvider>
         </body>
       </html>

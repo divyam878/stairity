@@ -38,11 +38,11 @@ export default function ContactHero() {
             <h1 className="relative inline-block text-5xl sm:text-5xl md:text-7xl lg:text-8xl font-regular mb-6 md:mb-12 tracking-tight font-hello">
               Contact Us
               <div
-                className="absolute -bottom-2 md:-bottom-4 left-0 scale-x-[1.2] md:scale-x-[1.5]"
+                className="absolute -bottom-4 md:-bottom-4 left-0 scale-x-[1.2] md:scale-x-[1.5]"
                 style={{ width: '100%' }}
               >
-                <div className="md:hidden">
-                  <Underline color="#0daeb0ff" width="100%" thickness="3" height="20" />
+                <div className="md:hidden ">
+                  <Underline color="#0daeb0ff" width="120%" thickness="3" height="25" />
                 </div>
                 <div className="hidden md:block">
                   <Underline color="#0daeb0ff" width="100%" thickness="3" height="34" />
@@ -78,7 +78,7 @@ export default function ContactHero() {
           <div className="flex flex-row lg:flex-col items-center lg:items-end gap-4 md:gap-8 w-full lg:w-auto mt-6 lg:mt-0">
             
             {/* Illustration */}
-            <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:mt-36 md:h-56 lg:w-64 lg:h-64">
+            <div className="relative w-32 h-32 sm:w-40 sm:h-40 md:w-56 md:mt-36 md:h-56 lg:w-64 lg:h-64 hidden md:block">
               <Image
                 src="/images/hands-phone-illustration.png"
                 alt="Hands holding phones illustration"

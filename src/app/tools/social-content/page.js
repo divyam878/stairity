@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Instagram, Copy, Check, Sparkles, Loader2 } from "lucide-react";
+import { Instagram, Copy, Check, Sparkles, Loader2, Music, Youtube, Twitter, Briefcase, Smile, Star, BookOpen, Target } from "lucide-react";
 import Underline from "../../../components/Underline";
 import { useAIUsage } from "../../../hooks/useAIUsage";
 import { UsageCounter, UsageLimitBanner } from "../../../components/ai/UsageComponents";
@@ -9,18 +9,18 @@ import { UsageCounter, UsageLimitBanner } from "../../../components/ai/UsageComp
 const TOOL_NAME = "social-content";
 
 const PLATFORMS = [
-  { id: 'instagram', name: 'Instagram', icon: '📸', maxLength: 2200 },
-  { id: 'tiktok', name: 'TikTok', icon: '🎵', maxLength: 300 },
-  { id: 'youtube', name: 'YouTube', icon: '▶️', maxLength: 5000 },
-  { id: 'twitter', name: 'Twitter/X', icon: '🐦', maxLength: 280 },
+  { id: 'instagram', name: 'Instagram', Icon: Instagram, maxLength: 2200 },
+  { id: 'tiktok', name: 'TikTok', Icon: Music, maxLength: 300 },
+  { id: 'youtube', name: 'YouTube', Icon: Youtube, maxLength: 5000 },
+  { id: 'twitter', name: 'Twitter/X', Icon: Twitter, maxLength: 280 },
 ];
 
 const TONES = [
-  { id: 'professional', name: 'Professional', emoji: '💼' },
-  { id: 'casual', name: 'Casual & Fun', emoji: '😊' },
-  { id: 'inspirational', name: 'Inspirational', emoji: '✨' },
-  { id: 'educational', name: 'Educational', emoji: '📚' },
-  { id: 'promotional', name: 'Promotional', emoji: '🎯' },
+  { id: 'professional', name: 'Professional', Icon: Briefcase },
+  { id: 'casual', name: 'Casual & Fun', Icon: Smile },
+  { id: 'inspirational', name: 'Inspirational', Icon: Star },
+  { id: 'educational', name: 'Educational', Icon: BookOpen },
+  { id: 'promotional', name: 'Promotional', Icon: Target },
 ];
 
 export default function SocialContentPage() {
@@ -168,7 +168,7 @@ export default function SocialContentPage() {
                           : 'bg-[#F6F6F6] text-black hover:shadow-md'
                       }`}
                     >
-                      <span className="text-2xl mb-1 block">{platform.icon}</span>
+                      <platform.Icon className="w-6 h-6 mb-1 mx-auto" />
                       <span className="text-sm">{platform.name}</span>
                     </button>
                   ))}
@@ -192,7 +192,10 @@ export default function SocialContentPage() {
                           : 'bg-[#F6F6F6] text-black hover:shadow-sm'
                       }`}
                     >
-                      {tone.emoji} {tone.name}
+                      <div className="flex items-center gap-2 justify-center">
+                        <tone.Icon className="w-4 h-4" />
+                        <span>{tone.name}</span>
+                      </div>
                     </button>
                   ))}
                 </div>

@@ -60,11 +60,11 @@ const Faq = () => {
           <div className="relative w-full flex items-start">
             <div className="flex-1">
               <h2 className="text-[46px] font-light text-black m-0 leading-snug text-left relative inline-block max-w-[80%]">
-                Pricing{" "}
+                Your Questions {" "}
                 <span className="relative text-[42px] inline-block font-hello font-normal">
-                  Questions Answered.
-                  <div className="absolute -bottom-3 md:-bottom-3 lg:-bottom-4 left-1/2 -translate-x-1/2 md:scale-x-[1.2] w-full">
-                    <Underline color="#005b52" width="100%" thickness="4" />
+                   Answered Here.
+                  <div className="absolute -bottom-3 md:-bottom-3 lg:-bottom-4 left-[30%] md:left-1/2 -translate-x-1/2 scale-x-[0.5] md:scale-x-[1.2] w-[90%] md:w-full">
+                    <Underline color="#649F66" width="100%" thickness="4" />
                   </div>
                 </span>
               </h2>

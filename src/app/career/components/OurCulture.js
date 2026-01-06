@@ -106,14 +106,14 @@ const OurCulture = () => {
           </h2>
 
           <div className="mt-3">
-            <div className="flex items-end gap-2">
-              <h2 className="text-4xl md:text-5xl lg:text-6xl font-hello font-medium text-black">
+            <div className="flex flex-col md:flex-row md:items-end gap-2">
+              <h2 className="text-5xl md:text-6xl lg:text-6xl font-hello font-medium text-black">
                 Workplace
               </h2>
-              <span className="relative inline-block text-4xl md:text-5xl lg:text-6xl font-hello font-medium text-black">
+              <span className="relative inline-block text-5xl md:text-6xl lg:text-6xl font-hello font-medium text-black">
                 Experience
                 <div
-                  className="absolute -bottom-3 left-1/2 -translate-x-1/2 scale-x-[1.2] md:scale-x-[1.9]" // responsive scale
+                  className="absolute -bottom-3 left-0 md:left-1/2 md:-translate-x-1/2 scale-x-[1.2] md:scale-x-[1.9]"
                   style={{ width: "70%" }}
                 >
                   <Underline color="#52c9d0" width="100%" thickness="4" />

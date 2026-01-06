@@ -1,97 +1,94 @@
+"use client";
+
 import Link from "next/link";
 import Image from "next/image";
 import Underline from "../../../components/Underline";
+import LikeHeartButton from "../../../components/blog/LikeHeartButton";
 
-// --- Components ---
-
-const AuthorCapsule = ({ author, date }) => (
-  <div className="flex items-center bg-white border border-black rounded-full py-1 px-3 sm:py-2 sm:px-4 w-fit">
-    <div className="w-8 h-8 mr-3  overflow-hidden shrink-0">
+// Author Info Component with image (matching blogs page)
+const AuthorInfo = ({ author, authorImage, date }) => (
+  <div className="flex items-center gap-2">
+    <div className="w-6 h-6 rounded-full overflow-hidden bg-gray-200 flex-shrink-0">
       <Image
-        src="/images/user-image.png"
+        src={authorImage || "/images/user-image.png"}
         alt={author}
-        width={32}
-        height={32}
+        width={24}
+        height={24}
         className="object-cover w-full h-full"
       />
     </div>
-    <div className="text-black flex flex-col justify-center leading-none">
-      <span className="text-[10px] sm:text-xs font-bold uppercase tracking-wider mb-[2px]">
-        {author}
-      </span>
-      <span className="text-[8px] sm:text-[10px] text-gray-500 uppercase tracking-widest">
-        {date}
-      </span>
-    </div>
+    <span className="text-sm text-gray-600">
+      {author} • {date}
+    </span>
   </div>
 );
 
-const CategoryPill = ({ category, variant = "blue" }) => {
-  const bgColors = {
-    blue: "bg-[#4AAEFF]",
-    tea: "bg-[#0F5A56]",
-  };
-  const textColors = {
-    blue: "text-white",
-    tea: "text-white",
-  };
-
+// Category Tag with outline (matching blogs page)
+const CategoryTag = ({ title, color }) => {
+  const tagColor = color || "#4AAEFF";
   return (
     <span
-      className={`inline-block py-2 px-6 rounded-xl text-xs sm:text-sm font-bold uppercase tracking-widest ${bgColors[variant]} ${textColors[variant]} w-fit`}
+      className="text-[10px] font-semibold uppercase tracking-wider px-2 py-0.5 rounded-full border"
+      style={{ 
+        color: tagColor, 
+        borderColor: tagColor,
+        backgroundColor: "transparent"
+      }}
     >
-      {category}
+      {title}
     </span>
   );
 };
 
-// Component for the blog card (Updated to match StandardCard design)
-const BlogCard = ({ post }) => {
-  const author = post?.authorName || "Divyam Goyal";
-  const date = post?.publishedAt
+// Standard Card - Matching the blogs page StandardCard component
+const StandardCard = ({ post }) => {
+  const author = post.authorName || "Stairity Team";
+  const authorImage = post.authorImage || null;
+  const date = post.publishedAt
     ? new Date(post.publishedAt).toLocaleDateString("en-US", {
         day: "numeric",
         month: "short",
         year: "numeric",
       })
-    : "26 Oct 2025";
-  const category = post?.categories?.[0]?.title || "Marketing";
-  const excerpt = post?.excerpt || "In today's digital landscape, your website is often your brand's first handshake with the world...";
+    : "";
+  const category = post.categories?.[0];
+  const blogData = {
+    slug: post.slug.current,
+    title: post.title,
+    image: post.mainImage?.asset?.url || null,
+  };
 
   return (
-    <Link
-      href={post?.slug?.current ? `/blogs/${post.slug.current}` : "#"}
-      className="block group flex flex-col h-full"
-    >
-      {/* Image Area */}
-      <div className="relative w-full aspect-[4/3] mb-6 overflow-hidden bg-gradient-to-br from-gray-200 to-gray-300">
-        {post?.mainImage?.asset?.url && (
-          <Image
-            src={post.mainImage.asset.url}
-            alt={post?.title || "Blog post"}
-            fill
-            className="object-cover transition-transform duration-500 ease-in-out group-hover:scale-105"
-          />
-        )}
-      </div>
+    <Link href={`/blogs/${post.slug.current}`} className="block group">
+      <div className="bg-[#fafafa] rounded-2xl overflow-hidden border border-transparent hover:border-gray-300 transition-all">
+        {/* Image */}
+        <div className="relative w-full aspect-[4/3] overflow-hidden bg-gray-200">
+          <LikeHeartButton blog={blogData} />
+          {post.mainImage?.asset?.url ? (
+            <Image
+              src={post.mainImage.asset.url}
+              alt={post.title || "Blog post"}
+              fill
+              className="object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          ) : (
+            <div className="w-full h-full bg-gray-200 flex items-center justify-center">
+              <span className="text-gray-400">No image</span>
+            </div>
+          )}
+        </div>
 
-      {/* Content */}
-      <div className="flex flex-col grow">
-        <h3 className="text-2xl md:text-3xl font-bold text-black mb-4 leading-tight group-hover:opacity-80 transition-opacity">
-          {post?.title || "The best marketing strategy for your business"}
-        </h3>
-        <p className="text-gray-700 text-sm md:text-base leading-relaxed mb-6 line-clamp-3">
-          {excerpt}
-        </p>
-        
-        <div className="mt-auto pt-6 border-t border-black flex flex-wrap items-center justify-between gap-4">
-           <div className="flex items-center gap-3">
-              <AuthorCapsule author={author} date={date.toUpperCase()} />
-              <CategoryPill category={category} variant="tea" />
-           </div>
-           <span className="text-sm font-bold text-black uppercase tracking-widest group-hover:underline underline-offset-4">
-            View More
-          </span>
+        {/* Content */}
+        <div className="p-5">
+          {category && (
+            <div className="mb-3">
+              <CategoryTag title={category.title} color={category.color} />
+            </div>
+          )}
+          <h3 className="text-lg md:text-xl font-bold text-black mb-3 leading-tight group-hover:text-gray-700 transition-colors line-clamp-2">
+            {post.title}
+          </h3>
+          <AuthorInfo author={author} authorImage={authorImage} date={date} />
         </div>
       </div>
     </Link>
@@ -99,8 +96,8 @@ const BlogCard = ({ post }) => {
 };
 
 export default function OurBlogs({ posts = [] }) {
-  // If no posts are provided, show 2 placeholder cards
-  const displayPosts = posts.length > 0 ? posts : Array(2).fill({});
+  // Display the first 2 posts, or show message if no posts
+  const displayPosts = posts.slice(0, 2);
 
   return (
     <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto">
@@ -128,13 +125,19 @@ export default function OurBlogs({ posts = [] }) {
        
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
-        {displayPosts.slice(0, 2).map((post, index) => (
-          <div key={post._id || index} className="w-full">
-            <BlogCard post={post} />
-          </div>
-        ))}
-      </div>
+      {displayPosts.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto px-4">
+          {displayPosts.map((post) => (
+            <div key={post._id} className="w-full">
+              <StandardCard post={post} />
+            </div>
+          ))}
+        </div>
+      ) : (
+        <div className="text-center py-12">
+          <p className="text-gray-600 text-lg">No blog posts available yet.</p>
+        </div>
+      )}
 
       <div className="text-center mt-12">
         <Link
