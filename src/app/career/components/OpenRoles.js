@@ -245,7 +245,7 @@ const OpenRoles = () => {
                   </div>
                 </span>
                 <p className="mt-4 text-lg sm:text-xl text-gray-600 max-w-4xl">
-                  We're always on the lookout for talented creatives who love
+                  We&apos;re always on the lookout for talented creatives who love
                   building digital experiences that inspire.
                 </p>
               </h2>

@@ -318,7 +318,8 @@ const Industries = () => {
   useEffect(() => {
     if (isAutoScrolling) {
       autoScrollInterval.current = setInterval(() => {
-        nextCard();
+        const nextIndex = (currentIndex + 1) % totalCards;
+        scrollToCard(nextIndex);
       }, 2000);
     }
 
@@ -327,6 +328,7 @@ const Industries = () => {
         clearInterval(autoScrollInterval.current);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currentIndex, isAutoScrolling, cardWidth]);
 
   const handleMouseEnter = () => {

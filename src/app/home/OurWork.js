@@ -27,25 +27,25 @@ const duplicatedImages = [...showcaseImages, ...showcaseImages];
 export default function OurWork() {
   const containerRef = useRef(null);
   const animationRef = useRef(null);
+  const scrollPositionRef = useRef(0);
+  const isPausedRef = useRef(false);
   const scrollSpeed = 1; // Adjust speed as needed (lower is slower)
-  let scrollPosition = 0;
-  let isPaused = false;
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
     const startScrolling = () => {
-      if (isPaused) return;
+      if (isPausedRef.current) return;
       
-      scrollPosition += scrollSpeed;
+      scrollPositionRef.current += scrollSpeed;
       
       // Reset scroll position when we've scrolled the width of one set of images
-      if (scrollPosition >= container.scrollWidth / 2) {
-        scrollPosition = 0;
+      if (scrollPositionRef.current >= container.scrollWidth / 2) {
+        scrollPositionRef.current = 0;
       }
       
-      container.scrollLeft = scrollPosition;
+      container.scrollLeft = scrollPositionRef.current;
       animationRef.current = requestAnimationFrame(startScrolling);
     };
 
@@ -53,8 +53,8 @@ export default function OurWork() {
     animationRef.current = requestAnimationFrame(startScrolling);
 
     // Pause on hover
-    const handleMouseEnter = () => { isPaused = true; };
-    const handleMouseLeave = () => { isPaused = false; startScrolling(); };
+    const handleMouseEnter = () => { isPausedRef.current = true; };
+    const handleMouseLeave = () => { isPausedRef.current = false; startScrolling(); };
     
     container.addEventListener('mouseenter', handleMouseEnter);
     container.addEventListener('mouseleave', handleMouseLeave);

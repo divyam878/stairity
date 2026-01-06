@@ -32,7 +32,7 @@ export default function KeepCalm() {
             </span>
           </h1>
           <p className="text-lg text-gray-700 font-medium">
-            At Webestrix, we don't just analyze — we elevate. From{" "}
+            At Webestrix, we don&apos;t just analyze — we elevate. From{" "}
             <strong>optimization</strong> to <strong>design</strong>, our{" "}
             <strong>full-stack web services</strong> help your brand scale like
             never before.

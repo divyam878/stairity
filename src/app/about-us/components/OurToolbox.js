@@ -38,11 +38,14 @@ export default function OurToolbox() {
   const allOtherLogos = [...otherLogos, ...otherLogos];
 
   useEffect(() => {
+    // Capture refs at the start
+    const designMarquee = designMarqueeRef.current;
+    const otherMarquee = otherMarqueeRef.current;
+    
     // Animate design marquee (top strip) at 20s
-    if (designMarqueeRef.current) {
-      const marquee = designMarqueeRef.current;
-      const singleSetWidth = marquee.scrollWidth / 2;
-      gsap.to(marquee, {
+    if (designMarquee) {
+      const singleSetWidth = designMarquee.scrollWidth / 2;
+      gsap.to(designMarquee, {
         x: -singleSetWidth,
         duration: 20,
         ease: 'none',
@@ -53,10 +56,9 @@ export default function OurToolbox() {
       });
     }
     // Animate other marquee (bottom strip) at 30s
-    if (otherMarqueeRef.current) {
-      const marquee = otherMarqueeRef.current;
-      const singleSetWidth = marquee.scrollWidth / 2;
-      gsap.to(marquee, {
+    if (otherMarquee) {
+      const singleSetWidth = otherMarquee.scrollWidth / 2;
+      gsap.to(otherMarquee, {
         x: -singleSetWidth,
         duration: 30,
         ease: 'none',
@@ -68,10 +70,9 @@ export default function OurToolbox() {
     }
     // Cleanup on unmount
     return () => {
-      gsap.killTweensOf(designMarqueeRef.current);
-      gsap.killTweensOf(otherMarqueeRef.current);
+      gsap.killTweensOf(designMarquee);
+      gsap.killTweensOf(otherMarquee);
     };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

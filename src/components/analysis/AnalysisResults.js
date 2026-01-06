@@ -108,7 +108,6 @@ const AnalysisResults = ({ results, onClose }) => {
         clearTimeout(timer);
         clearInterval(progressInterval);
       };
-    // eslint-disable-next-line react-hooks/exhaustive-deps
     }
     return () => clearInterval(interval);
   }, [results]);

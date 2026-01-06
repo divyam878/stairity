@@ -31,6 +31,8 @@ const WordSplitter = ({ text, className, delayIncrement = 50, tag = "p" }) => {
   ));
 
   useEffect(() => {
+    const currentRef = contentRef.current;
+    
     const observer = new IntersectionObserver(
       ([entry]) => {
         // Trigger the animation when the element enters the viewport
@@ -43,13 +45,13 @@ const WordSplitter = ({ text, className, delayIncrement = 50, tag = "p" }) => {
       { threshold: 0.1 },
     );
 
-    if (contentRef.current) {
-      observer.observe(contentRef.current);
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (contentRef.current) {
-        observer.unobserve(contentRef.current);
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, []);
@@ -133,7 +135,7 @@ const HeroSection = () => {
       window.removeEventListener("resize", handleScroll);
       if (rafRef.current) cancelAnimationFrame(rafRef.current);
     };
-  }, []);
+  }, [totalRotationDegrees]);
 
   // REMOVED: const circleDiameterVw = 150;
 
